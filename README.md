@@ -1,6 +1,6 @@
-﻿# 知模实验室：独立安装源码
+# 知模实验室：本地数据分析实验平台
 
-本目录由当前 `project1` 源码整理，保留现有应用的前后端、必要配置、公开示例数据、内置模型、字体和图标。所有命令在 Windows PowerShell 中执行。
+知模实验室是一个本地运行的智能实验平台，把方法检索、数据准备、对话实验、结果解释和学习路线放在同一个界面里。本仓库是独立源码包，包含前后端、内置示例数据、本地模型和文档；不包含 `.venv`、`node_modules` 和运行数据。所有命令在 Windows PowerShell 中执行。
 
 默认前端地址为 **http://127.0.0.1:19032/**，后端地址为 **http://127.0.0.1:19031/**。本目录的依赖与运行数据独立保存。
 
@@ -21,6 +21,24 @@ npm.cmd --prefix .\frontend ci --include=dev --no-audit --no-fund
 ```
 
 Python 依赖安装到 `.venv/`，前端依赖安装到 `frontend/node_modules/`。直接使用虚拟环境的 Python 路径，无需激活脚本。
+
+### 环境变量
+
+依赖装好后，启动后端前可以按需设置以下环境变量：
+
+| 变量 | 是否必需 | 作用 |
+| --- | --- | --- |
+| `ZM_API_KEY` | 可选 | 服务端统一提供模型 API Key。适合本机演示 / 评审：设置后界面里不必再逐个填写密钥；未设置时仍可在「接口设置」中按账号填写。 |
+| `FOREST_PYTHON` | 可选 | 指定前端启动后端时使用的 Python 解释器；默认自动寻找项目根 `.venv/`。 |
+| `FOREST_BACKEND_URL` | 可选 | 后端不在默认 19031 时，指定前端代理目标。 |
+| `FOREST_PORT` | 可选 | 覆盖后端默认端口 19031。 |
+| `FOREST_HTTPS` | 可选 | 设为 `0` 时强制使用 HTTP；默认按证书文件自动判断。 |
+
+例如在启动后端前统一提供模型密钥：
+
+```powershell
+$env:ZM_API_KEY = '你的 API Key'
+```
 
 前端启动时会自己寻找解释器，顺序为：`FOREST_PYTHON` 环境变量 → 项目根 `.venv/` → `.local/.venv/`。只要虚拟环境建在项目根目录，就不需要设置任何环境变量；三处都找不到时会直接报出已尝试的路径。
 
@@ -85,7 +103,7 @@ $env:FOREST_BACKEND_URL = 'http://127.0.0.1:19031'
 
 端口来自 `frontend/src/config.ts` 的 `server.port`，并启用 `--strictPort`：19032 被占用会直接报错而不是自动换端口。临时换端口用 `npm.cmd run dev -- --port 19033`。
 
-模型接口在页面左下角「接口设置」中配置（上游地址、模型、API Key）。API Key 由用户在界面中填写，按账号加密保存在本地；系统不再从环境变量读取密钥，也不会向浏览器返回完整密钥。
+模型接口在页面左下角「接口设置」中配置（上游地址、模型、API Key）。API Key 默认由用户在界面中填写，按账号加密保存在本地；本机演示 / 评审也可以在后端启动前设置 `ZM_API_KEY`，由服务端统一提供，界面不必再逐个填写。密钥不会向浏览器返回完整内容。
 
 ## 6. 构建与预览（生产形态）
 
@@ -129,22 +147,36 @@ Invoke-RestMethod -Uri 'http://127.0.0.1:19032/api/health'
 ## 9. 文件结构
 
 ```text
-project1/
-├─ backend/                 后端接口、对话与学习逻辑、实验算法
-│  ├─ app.py                本地后端入口（python app.py）
-│  ├─ config.py             后端参数、运行路径与默认端口
-│  └─ agent/assets/          公开资源与字体
-│     └─ model-providers.json  前后端共享的供应商、协议和模型预设
-├─ frontend/                页面、画布、卡片、前端构建配置与锁文件
-│  ├─ src/config.ts         前端参数与默认端口
-│  ├─ public/               公开静态文件、内置语义检索模型与推理运行时
-│  ├─ dist/                 构建产物（生成，不参与交付）
-│  └─ vite.config.ts        开发/预览服务器与 /api 代理配置
-├─ data/                    公开内置示例CSV与SenseVoice语音模型（data/models/sensevoice）
-├─ docs/                    作品介绍文档与运行截图
-├─ requirements.txt         Python运行依赖
-└─ README.md                安装、启动、停止与检查步骤
+project1-standalone/
+├─ backend/                      后端接口、对话与学习逻辑、实验算法
+│  ├─ app.py                     本地后端入口（python app.py）
+│  ├─ config.py                  后端参数、运行路径与默认端口
+│  └─ agent/assets/              公开资源、字体与供应商预设
+│     └─ model-providers.json    前后端共享的供应商、协议和模型预设
+├─ frontend/                     页面、画布、卡片、前端构建配置与锁文件
+│  ├─ src/config.ts              前端参数与默认端口
+│  ├─ public/models/             内置语义检索模型 bge-small-zh-v1.5
+│  ├─ public/ort/                浏览器推理运行时（ONNX Runtime Web）
+│  ├─ public/favicon.svg         站点图标
+│  ├─ vite.config.ts             开发/预览服务器与 /api 代理配置
+│  └─ package.json / lock        前端依赖清单与锁文件
+├─ data/                         公开内置数据与语音模型
+│  ├─ *.csv                      21 份内置示例数据
+│  └─ models/sensevoice/         SenseVoice int8 语音模型（约 230 MB）
+├─ md/                           说明与演示文案
+│  ├─ 演示脚本-数据分析版.md
+│  ├─ 演示脚本.md
+│  ├─ SPEC.md
+│  ├─ STORYLINES.md
+│  ├─ README-交付说明.md
+│  └─ 审校意见-作品介绍.md
+├─ requirements.txt              Python 运行依赖
+├─ README.md                     安装、环境变量、启动与检查步骤
+├─ .gitattributes                Git LFS 规则（大模型文件）
+└─ eslint / prettier / editorconfig  开发规范配置
 ```
+
+> `data/models/sensevoice/sense-voice-encoder-int8.onnx` 约 240 MB，已使用 Git LFS 管理。克隆仓库前先执行 `git lfs install`，否则该文件只会得到 LFS 指针。
 
 安装和运行后生成的文件：
 
@@ -162,5 +194,5 @@ frontend/node_modules/      本目录的Node依赖
 
 交付时仅包含源码与必要公开资源。安装后如需重新压缩纯源码，应排除 `.local/`、`.venv/`、`frontend/node_modules/`、`frontend/dist/` 与生成的 Python 字节码目录；**不要排除 `frontend/public/models/` 和 `data/models/`**，它们是必需的内置模型。
 
-整理日期：2026-11-15。已核对文件、语法、相对路径与端口配置，并实测依赖安装产物、开发服务器启动、生产构建与预览代理。
+整理日期：2026-11-16。已核对文件、语法、相对路径、端口配置和 Git LFS 规则，并实测依赖安装、开发服务器启动、生产构建与预览代理。
 
