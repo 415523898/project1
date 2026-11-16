@@ -1,0 +1,17 @@
+/* Shared by composer drafts and recorded message attachments only. */
+.attachment-region {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+  max-height: 120px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding-right: 3px;
+}
+.attachment-region:focus-visible {
+  outline: 2px solid var(--dsw-focus-ring);
+  outline-offset: 2px;
+}

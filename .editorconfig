@@ -1,0 +1,46 @@
+root = true
+
+# 前端源码与构建配置
+[{frontend/src/**.{vue,ts,css,json},frontend/*.ts,frontend/*.json,eslint.config.mjs,.prettierrc.json}]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Python 后端
+[{backend/{agent,engine}/**.py,backend/*.py}]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# 文档
+[{README.md,backend/agent/assets/fonts/README.md}]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+# Markdown trailing spaces can be semantic.
+trim_trailing_whitespace = false
+
+# 生成的数据文件保持原样
+[frontend/src/data/{method-graph,method-embeddings}.ts]
+charset = unset
+end_of_line = unset
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+
+[frontend/package-lock.json]
+charset = unset
+end_of_line = unset
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset

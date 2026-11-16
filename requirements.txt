@@ -1,0 +1,55 @@
+# Runtime dependencies for the method library.
+#
+# Only the packages the implementations actually import are listed; the method catalogue
+# declares which ones a given method cannot run without (see engine/catalog.py, `needs`).
+
+# --- core numerics -----------------------------------------------------------
+numpy>=2.0
+pandas>=2.0
+scipy>=1.11
+scikit-learn>=1.4
+statsmodels>=0.14
+matplotlib>=3.8
+Pillow>=10.0
+
+# CSV/Excel uploads: pandas delegates xlsx/xls parsing to these engines.
+openpyxl>=3.1
+xlrd>=2.0.1
+# Conversation PDF text layers; DOCX uses bounded standard-library ZIP/XML parsing.
+pypdf>=6.0
+
+# --- modelling extensions ----------------------------------------------------
+linearmodels>=6.0
+arch>=7.0
+xgboost>=2.0
+lightgbm>=4.0
+lifelines>=0.27
+
+# --- optional extras ---------------------------------------------------------
+# Class balancing (prep.balance: oversample / smote / undersample)
+imbalanced-learn>=0.12
+
+# Spatial regression (series.spatial) and spatial weights. Installing spreg pulls in
+# libpysal, geopandas, shapely, pyproj and pyogrio.
+spreg>=1.6
+libpysal>=4.9
+
+# --- web layer --------------------------------
+flask>=3.0
+argon2-cffi>=21.3.0
+cryptography>=46.0
+
+# --- method retrieval --------------------------------------------------------
+# agent/retriever.py runs two channels and reranks their union. Both are imported
+# lazily: without them the agent still answers, but one retrieval channel is gone
+# and /api/rag/status reports it. chromadb pulls in its own sizable tree
+# (onnxruntime, opentelemetry, kubernetes client), so it is worth knowing that
+# dropping it costs the vector channel only; bm25 keeps working.
+rank-bm25>=0.2.2
+chromadb>=0.5
+
+# --- speech input ------------------------------------------------------------
+# engine/sensevoice.py turns CTC output ids back into text with the model's
+# sentencepiece vocabulary; the encoder runs on onnxruntime.
+sentencepiece>=0.2
+onnxruntime>=1.20

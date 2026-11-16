@@ -1,0 +1,11 @@
+{
+ "model": "Xenova/bge-small-zh-v1.5",
+ "mirror": "https://hf-mirror.com",
+ "files": [
+  "config.json",
+  "tokenizer.json",
+  "tokenizer_config.json",
+  "special_tokens_map.json",
+  "onnx/model_quantized.onnx"
+ ]
+}

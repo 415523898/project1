@@ -1,0 +1,1404 @@
+{
+  "checked_at": "2026-10-23",
+  "model_families": [
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "base_url": "https://api.openai.com/v1",
+      "protocol": "responses",
+      "models": [
+        {
+          "id": "gpt-6.1-sol",
+          "efforts": ["low", "medium", "high", "xhigh", "max"]
+        },
+        {
+          "id": "gpt-6-astra",
+          "efforts": ["low", "medium", "high", "xhigh", "max"]
+        }
+      ],
+      "source": "https://developers.openai.com/api/docs/guides/reasoning"
+    },
+    {
+      "id": "gemini",
+      "label": "Google Gemini",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "protocol": "gemini",
+      "models": [
+        {
+          "id": "gemini-3.8-flash",
+          "efforts": ["low", "medium", "high"]
+        },
+        {
+          "id": "gemini-3.1-pro-preview",
+          "efforts": ["low", "high"]
+        },
+        {
+          "id": "gemini-2.5-flash",
+          "efforts": ["off", "enabled"],
+          "budget": true
+        }
+      ],
+      "source": "https://ai.google.dev/gemini-api/docs/generate-content/thinking"
+    },
+    {
+      "id": "grok",
+      "label": "xAI Grok",
+      "base_url": "https://api.x.ai/v1",
+      "protocol": "responses",
+      "models": [
+        {
+          "id": "grok-4.7",
+          "efforts": ["low", "medium", "high", "xhigh"]
+        },
+        {
+          "id": "grok-4.5",
+          "efforts": ["low", "medium", "high"]
+        }
+      ],
+      "source": "https://docs.x.ai/developers/model-capabilities/text/reasoning"
+    },
+    {
+      "id": "muse",
+      "label": "Meta Muse",
+      "base_url": "https://api.meta.ai/v1",
+      "protocol": "responses",
+      "models": [
+        {
+          "id": "muse-spark-1.3",
+          "efforts": ["minimal", "low", "medium", "high", "xhigh", "max"]
+        },
+        {
+          "id": "muse-wonder-1.0",
+          "efforts": ["minimal", "low", "medium", "high", "xhigh", "max"]
+        },
+        {
+          "id": "muse-spark-1.2",
+          "efforts": ["minimal", "low", "medium", "high", "xhigh"]
+        }
+      ],
+      "source": "https://dev.meta.ai/docs/reasoning"
+    },
+    {
+      "id": "claude",
+      "label": "Anthropic Claude",
+      "base_url": "https://api.anthropic.com/v1",
+      "protocol": "anthropic",
+      "models": [
+        {
+          "id": "claude-opus-5-5",
+          "efforts": ["low", "medium", "high", "xhigh", "max"]
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "efforts": ["low", "medium", "high", "xhigh", "max"]
+        },
+        {
+          "id": "claude-opus-4-6",
+          "efforts": ["off", "low", "medium", "high", "max"]
+        }
+      ],
+      "source": "https://platform.claude.com/docs/en/build-with-claude/effort"
+    },
+    {
+      "id": "deepseek",
+      "label": "DeepSeek",
+      "base_url": "https://api.deepseek.com",
+      "protocol": "chat",
+      "models": [
+        {
+          "id": "deepseek-flash",
+          "efforts": ["off", "low", "high", "max"]
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "efforts": ["off", "low", "high", "max"]
+        }
+      ],
+      "source": "https://api-docs.deepseek.com/guides/thinking_mode/"
+    },
+    {
+      "id": "glm",
+      "label": "智谱 GLM",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "protocol": "chat",
+      "models": [
+        {
+          "id": "glm-5.3",
+          "efforts": ["low", "high", "max"]
+        },
+        {
+          "id": "glm-4.7",
+          "efforts": ["off", "enabled"]
+        }
+      ],
+      "source": "https://docs.bigmodel.cn/cn/guide/models/text/glm-5.3.md"
+    },
+    {
+      "id": "minimax",
+      "label": "MiniMax",
+      "base_url": "https://api.minimax.io/v1",
+      "protocol": "chat",
+      "models": [
+        {
+          "id": "MiniMax-M3.1-Flash",
+          "efforts": ["low", "medium", "high", "xhigh", "max"]
+        },
+        {
+          "id": "MiniMax-M3",
+          "efforts": ["off", "enabled"]
+        }
+      ],
+      "source": "https://platform.minimax.io/docs/api-reference/text-openai-api"
+    },
+    {
+      "id": "hunyuan",
+      "label": "腾讯混元 · HY",
+      "base_url": "https://api.hunyuan.cloud.tencent.com/v1",
+      "protocol": "chat",
+      "models": [
+        {
+          "id": "hunyuan-turbos-latest",
+          "efforts": []
+        },
+        {
+          "id": "hunyuan-t1-latest",
+          "efforts": []
+        }
+      ],
+      "source": "https://cloud.tencent.com/document/product/1729/111007"
+    },
+    {
+      "id": "mimo",
+      "label": "小米 MiMo · 按量计费",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "protocol": "chat",
+      "models": [
+        {
+          "id": "mimo-v2.5-pro",
+          "efforts": ["off", "enabled"]
+        },
+        {
+          "id": "mimo-v2.5",
+          "efforts": ["off", "enabled"]
+        }
+      ],
+      "source": "https://platform.xiaomimimo.com/docs/en-US/usage-guide/passing-back-reasoning_content"
+    },
+    {
+      "id": "qwen",
+      "label": "阿里通义 Qwen",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "protocol": "chat",
+      "models": [
+        {
+          "id": "qwen3.5-plus",
+          "efforts": ["off", "enabled"]
+        },
+        {
+          "id": "qwen-plus",
+          "efforts": ["off", "enabled"]
+        }
+      ],
+      "source": "https://www.alibabacloud.com/help/en/model-studio/deep-thinking"
+    },
+    {
+      "id": "kimi",
+      "label": "月之暗面 Kimi",
+      "base_url": "https://api.moonshot.ai/v1",
+      "protocol": "chat",
+      "models": [
+        {
+          "id": "kimi-k3",
+          "efforts": ["low", "high", "max"]
+        },
+        {
+          "id": "kimi-k2.6",
+          "efforts": ["off", "enabled"]
+        },
+        {
+          "id": "kimi-k2.5",
+          "efforts": ["off", "enabled"]
+        }
+      ],
+      "source": "https://platform.kimi.ai/docs/overview"
+    }
+  ],
+  "providers": [
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "family": "openai",
+      "logo": "openai.png",
+      "protocol": "responses",
+      "base_url": "https://api.openai.com/v1",
+      "source": "https://developers.openai.com/api/reference/resources/responses/methods/create",
+      "endpoints": [
+        {
+          "id": "openai-01",
+          "label": "OpenAI API",
+          "base_url": "https://api.openai.com/v1",
+          "protocols": ["responses"],
+          "plans": ["OpenAI API"],
+          "source": "https://developers.openai.com/api/reference/resources/responses/methods/create",
+          "request_urls": {
+            "responses": "https://api.openai.com/v1/responses"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gemini",
+      "label": "Google Gemini",
+      "family": "gemini",
+      "logo": "gemini.png",
+      "protocol": "gemini",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "source": "https://ai.google.dev/api/generate-content",
+      "endpoints": [
+        {
+          "id": "gemini-01",
+          "label": "Gemini Developer API",
+          "base_url": "https://generativelanguage.googleapis.com/v1beta",
+          "protocols": ["gemini"],
+          "plans": ["Gemini API"],
+          "source": "https://ai.google.dev/api/generate-content",
+          "request_urls": {
+            "gemini": "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "grok",
+      "label": "xAI Grok",
+      "family": "grok",
+      "logo": "grok.svg",
+      "protocol": "responses",
+      "base_url": "https://api.x.ai/v1",
+      "source": "https://docs.x.ai/developers/rest-api-reference/inference/responses",
+      "endpoints": [
+        {
+          "id": "grok-01",
+          "label": "Grok API / Build 的 API Key 模式",
+          "base_url": "https://api.x.ai/v1",
+          "protocols": ["responses"],
+          "plans": ["xAI API"],
+          "source": "https://docs.x.ai/developers/rest-api-reference/inference/responses",
+          "request_urls": {
+            "responses": "https://api.x.ai/v1/responses"
+          }
+        }
+      ]
+    },
+    {
+      "id": "meta",
+      "label": "Meta Model API / Muse",
+      "family": "muse",
+      "logo": "meta.svg",
+      "protocol": "responses",
+      "base_url": "https://api.meta.ai/v1",
+      "source": "https://dev.meta.ai/docs/api-reference",
+      "endpoints": [
+        {
+          "id": "meta-01",
+          "label": "Meta Model API",
+          "base_url": "https://api.meta.ai/v1",
+          "protocols": ["responses", "chat", "anthropic"],
+          "plans": ["Meta Model API"],
+          "source": "https://dev.meta.ai/docs/api-reference",
+          "request_urls": {
+            "responses": "https://api.meta.ai/v1/responses",
+            "chat": "https://api.meta.ai/v1/chat/completions",
+            "anthropic": "https://api.meta.ai/v1/messages"
+          }
+        }
+      ]
+    },
+    {
+      "id": "claude",
+      "label": "Anthropic Claude",
+      "family": "claude",
+      "logo": "claude.svg",
+      "protocol": "anthropic",
+      "base_url": "https://api.anthropic.com/v1",
+      "source": "https://platform.claude.com/docs/en/api/messages/create",
+      "endpoints": [
+        {
+          "id": "claude-01",
+          "label": "Claude API",
+          "base_url": "https://api.anthropic.com/v1",
+          "protocols": ["anthropic"],
+          "plans": ["Claude API"],
+          "source": "https://platform.claude.com/docs/en/api/messages/create",
+          "request_urls": {
+            "anthropic": "https://api.anthropic.com/v1/messages"
+          }
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "label": "DeepSeek",
+      "family": "deepseek",
+      "logo": "deepseek.svg",
+      "protocol": "chat",
+      "base_url": "https://api.deepseek.com",
+      "source": "https://api-docs.deepseek.com/",
+      "endpoints": [
+        {
+          "id": "deepseek-01",
+          "label": "OpenAI 兼容",
+          "base_url": "https://api.deepseek.com",
+          "protocols": ["chat", "responses"],
+          "plans": ["DeepSeek API"],
+          "source": "https://api-docs.deepseek.com/",
+          "request_urls": {
+            "chat": "https://api.deepseek.com/chat/completions",
+            "responses": "https://api.deepseek.com/responses"
+          }
+        },
+        {
+          "id": "deepseek-02",
+          "label": "Anthropic 兼容",
+          "base_url": "https://api.deepseek.com/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["DeepSeek API"],
+          "source": "https://api-docs.deepseek.com/",
+          "request_urls": {
+            "anthropic": "https://api.deepseek.com/anthropic/v1/messages"
+          }
+        }
+      ]
+    },
+    {
+      "id": "glm",
+      "label": "智谱 BigModel / Z.ai（含 ZCode 接入）",
+      "family": "glm",
+      "logo": "glm.png",
+      "protocol": "chat",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "source": "https://docs.bigmodel.cn/cn/guide/develop/openai/introduction.md",
+      "endpoints": [
+        {
+          "id": "glm-01",
+          "label": "BigModel 标准 Chat",
+          "base_url": "https://open.bigmodel.cn/api/paas/v4",
+          "protocols": ["chat"],
+          "plans": ["标准 API / 普通资源包"],
+          "source": "https://docs.bigmodel.cn/cn/guide/develop/openai/introduction.md",
+          "request_urls": {
+            "chat": "https://open.bigmodel.cn/api/paas/v4/chat/completions"
+          }
+        },
+        {
+          "id": "glm-02",
+          "label": "BigModel Coding Chat",
+          "base_url": "https://open.bigmodel.cn/api/coding/paas/v4",
+          "protocols": ["chat"],
+          "plans": ["GLM Coding Plan 个人/团队"],
+          "source": "https://docs.bigmodel.cn/cn/coding-plan/tool/others.md",
+          "request_urls": {
+            "chat": "https://open.bigmodel.cn/api/coding/paas/v4/chat/completions"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "glm-03",
+          "label": "BigModel 通用 Messages",
+          "base_url": "https://open.bigmodel.cn/api/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["标准 API（按 Key 权限）", "GLM Coding Plan"],
+          "source": "https://docs.bigmodel.cn/cn/coding-plan/tool/others.md",
+          "request_urls": {
+            "anthropic": "https://open.bigmodel.cn/api/anthropic/v1/messages"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "glm-04",
+          "label": "BigModel 通用 Responses",
+          "base_url": "https://open.bigmodel.cn/api/v1",
+          "protocols": ["responses"],
+          "plans": ["标准 API（按 Key 权限）", "GLM Coding Plan"],
+          "source": "https://docs.bigmodel.cn/cn/guide/develop/responses/introduction.md",
+          "request_urls": {
+            "responses": "https://open.bigmodel.cn/api/v1/responses"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "glm-05",
+          "label": "Z.ai 标准 Chat",
+          "base_url": "https://api.z.ai/api/paas/v4",
+          "protocols": ["chat"],
+          "plans": ["Z.ai API"],
+          "source": "https://docs.z.ai/guides/develop/openai/python.md",
+          "request_urls": {
+            "chat": "https://api.z.ai/api/paas/v4/chat/completions"
+          }
+        },
+        {
+          "id": "glm-06",
+          "label": "Z.ai Coding Chat",
+          "base_url": "https://api.z.ai/api/coding/paas/v4",
+          "protocols": ["chat"],
+          "plans": ["GLM Coding Plan"],
+          "source": "https://docs.z.ai/devpack/tool/others.md",
+          "request_urls": {
+            "chat": "https://api.z.ai/api/coding/paas/v4/chat/completions"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "glm-07",
+          "label": "Z.ai Coding Messages",
+          "base_url": "https://api.z.ai/api/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["GLM Coding Plan"],
+          "source": "https://docs.z.ai/devpack/tool/others.md",
+          "request_urls": {
+            "anthropic": "https://api.z.ai/api/anthropic/v1/messages"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "glm-08",
+          "label": "Z.ai Coding Responses",
+          "base_url": "https://api.z.ai/api/v1",
+          "protocols": ["responses"],
+          "plans": ["GLM Coding Plan"],
+          "source": "https://docs.z.ai/devpack/tool/others.md",
+          "request_urls": {
+            "responses": "https://api.z.ai/api/v1/responses"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        }
+      ]
+    },
+    {
+      "id": "minimax",
+      "label": "MiniMax",
+      "family": "minimax",
+      "logo": "minimax.svg",
+      "protocol": "chat",
+      "base_url": "https://api.minimax.io/v1",
+      "source": "https://platform.minimax.io/docs/api-reference/text-openai-api",
+      "endpoints": [
+        {
+          "id": "minimax-01",
+          "label": "国际站 OpenAI",
+          "base_url": "https://api.minimax.io/v1",
+          "protocols": ["chat"],
+          "plans": ["按量 API", "M Plan", "旧 Token Plan"],
+          "source": "https://platform.minimax.io/docs/api-reference/text-openai-api",
+          "request_urls": {
+            "chat": "https://api.minimax.io/v1/chat/completions"
+          }
+        },
+        {
+          "id": "minimax-02",
+          "label": "国际站 Anthropic",
+          "base_url": "https://api.minimax.io/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["按量 API", "M Plan", "旧 Token Plan"],
+          "source": "https://platform.minimax.io/docs/api-reference/text-anthropic-api",
+          "request_urls": {
+            "anthropic": "https://api.minimax.io/anthropic/v1/messages"
+          }
+        },
+        {
+          "id": "minimax-03",
+          "label": "国内站 OpenAI",
+          "base_url": "https://api.minimax.cn/v1",
+          "protocols": ["chat"],
+          "plans": ["按量 API", "M Plan"],
+          "source": "https://platform.minimaxi.com/docs/api-reference/text-openai-api",
+          "request_urls": {
+            "chat": "https://api.minimax.cn/v1/chat/completions"
+          }
+        },
+        {
+          "id": "minimax-04",
+          "label": "国内站 Anthropic",
+          "base_url": "https://api.minimax.cn/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["按量 API", "M Plan"],
+          "source": "https://platform.minimaxi.com/docs/api-reference/text-anthropic-api",
+          "request_urls": {
+            "anthropic": "https://api.minimax.cn/anthropic/v1/messages"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tencent",
+      "label": "腾讯混元 / TokenHub",
+      "family": "hunyuan",
+      "logo": "tencent.svg",
+      "protocol": "chat",
+      "base_url": "https://api.hunyuan.cloud.tencent.com/v1",
+      "source": "https://cloud.tencent.com/document/product/1729/111007",
+      "endpoints": [
+        {
+          "id": "tencent-01",
+          "label": "混元现有接口（旧服务）",
+          "base_url": "https://api.hunyuan.cloud.tencent.com/v1",
+          "protocols": ["chat"],
+          "plans": ["旧混元 API"],
+          "source": "https://cloud.tencent.com/document/product/1729/111007",
+          "request_urls": {
+            "chat": "https://api.hunyuan.cloud.tencent.com/v1/chat/completions"
+          }
+        },
+        {
+          "id": "tencent-02",
+          "label": "TokenHub 广州",
+          "base_url": "https://tokenhub.tencentmaas.com/v1",
+          "protocols": ["chat", "responses", "anthropic"],
+          "plans": ["TokenHub 按量服务"],
+          "source": "https://cloud.tencent.com/document/product/1823/130079",
+          "request_urls": {
+            "chat": "https://tokenhub.tencentmaas.com/v1/chat/completions",
+            "responses": "https://tokenhub.tencentmaas.com/v1/responses",
+            "anthropic": "https://tokenhub.tencentmaas.com/v1/messages"
+          }
+        },
+        {
+          "id": "tencent-03",
+          "label": "TokenHub 新加坡",
+          "base_url": "https://tokenhub-intl.tencentmaas.com/v1",
+          "protocols": ["chat", "responses", "anthropic"],
+          "plans": ["TokenHub 按量服务"],
+          "source": "https://cloud.tencent.com/document/product/1823/130079",
+          "request_urls": {
+            "chat": "https://tokenhub-intl.tencentmaas.com/v1/chat/completions",
+            "responses": "https://tokenhub-intl.tencentmaas.com/v1/responses",
+            "anthropic": "https://tokenhub-intl.tencentmaas.com/v1/messages"
+          }
+        },
+        {
+          "id": "tencent-04",
+          "label": "国际混元文档另列入口",
+          "base_url": "https://tokenhub-intl.tencentcloudmaas.com/v1",
+          "protocols": ["chat"],
+          "plans": ["国际站对应服务"],
+          "source": "https://intl.cloud.tencent.com/zh/document/product/1300/80695",
+          "request_urls": {
+            "chat": "https://tokenhub-intl.tencentcloudmaas.com/v1/chat/completions"
+          }
+        },
+        {
+          "id": "tencent-05",
+          "label": "腾讯 Coding Plan OpenAI",
+          "base_url": "https://api.lkeap.cloud.tencent.com/coding/v3",
+          "protocols": ["chat"],
+          "plans": ["腾讯云 Coding Plan"],
+          "source": "https://cloud.tencent.com/document/product/1823/130092",
+          "request_urls": {
+            "chat": "https://api.lkeap.cloud.tencent.com/coding/v3/chat/completions"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "tencent-06",
+          "label": "腾讯 Coding Plan Anthropic",
+          "base_url": "https://api.lkeap.cloud.tencent.com/coding/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["腾讯云 Coding Plan"],
+          "source": "https://cloud.tencent.com/document/product/1823/130092",
+          "request_urls": {
+            "anthropic": "https://api.lkeap.cloud.tencent.com/coding/anthropic/v1/messages"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "tencent-07",
+          "label": "Token Plan 广州",
+          "base_url": "https://tokenhub.tencentmaas.com/plan/v3",
+          "protocols": ["chat"],
+          "plans": ["个人 Token Plan", "个人 Hy Token Plan", "企业 Token Plan"],
+          "source": "https://cloud.tencent.com/document/product/1823/130072",
+          "request_urls": {
+            "chat": "https://tokenhub.tencentmaas.com/plan/v3/chat/completions"
+          }
+        },
+        {
+          "id": "tencent-08",
+          "label": "Token Plan 新加坡",
+          "base_url": "https://tokenhub-intl.tencentmaas.com/plan/v3",
+          "protocols": ["chat"],
+          "plans": ["企业 Token Plan"],
+          "source": "https://cloud.tencent.com/document/product/1823/130667",
+          "request_urls": {
+            "chat": "https://tokenhub-intl.tencentmaas.com/plan/v3/chat/completions"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mimo",
+      "label": "小米 MiMo",
+      "family": "mimo",
+      "logo": "mimo.png",
+      "protocol": "chat",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "source": "https://mimo.mi.com/docs/tokenplan/integration",
+      "endpoints": [
+        {
+          "id": "mimo-01",
+          "label": "按量 OpenAI",
+          "base_url": "https://api.xiaomimimo.com/v1",
+          "protocols": ["chat"],
+          "plans": ["按量 API"],
+          "source": "https://mimo.mi.com/docs/tokenplan/integration",
+          "request_urls": {
+            "chat": "https://api.xiaomimimo.com/v1/chat/completions"
+          }
+        },
+        {
+          "id": "mimo-02",
+          "label": "按量 Anthropic",
+          "base_url": "https://api.xiaomimimo.com/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["按量 API"],
+          "source": "https://mimo.mi.com/docs/tokenplan/integration",
+          "request_urls": {
+            "anthropic": "https://api.xiaomimimo.com/anthropic/v1/messages"
+          }
+        },
+        {
+          "id": "mimo-03",
+          "label": "Token Plan 中国 chat",
+          "base_url": "https://token-plan-cn.xiaomimimo.com/v1",
+          "protocols": ["chat"],
+          "plans": ["Token Plan"],
+          "source": "https://mimo.mi.com/docs/tokenplan/subscription",
+          "request_urls": {
+            "chat": "https://token-plan-cn.xiaomimimo.com/v1/chat/completions"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "mimo-04",
+          "label": "Token Plan 中国 anthropic",
+          "base_url": "https://token-plan-cn.xiaomimimo.com/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["Token Plan"],
+          "source": "https://mimo.mi.com/docs/tokenplan/subscription",
+          "request_urls": {
+            "anthropic": "https://token-plan-cn.xiaomimimo.com/anthropic/v1/messages"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "mimo-05",
+          "label": "Token Plan 新加坡 chat",
+          "base_url": "https://token-plan-sgp.xiaomimimo.com/v1",
+          "protocols": ["chat"],
+          "plans": ["Token Plan"],
+          "source": "https://mimo.mi.com/docs/tokenplan/subscription",
+          "request_urls": {
+            "chat": "https://token-plan-sgp.xiaomimimo.com/v1/chat/completions"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "mimo-06",
+          "label": "Token Plan 新加坡 anthropic",
+          "base_url": "https://token-plan-sgp.xiaomimimo.com/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["Token Plan"],
+          "source": "https://mimo.mi.com/docs/tokenplan/subscription",
+          "request_urls": {
+            "anthropic": "https://token-plan-sgp.xiaomimimo.com/anthropic/v1/messages"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "mimo-07",
+          "label": "Token Plan 欧洲 chat",
+          "base_url": "https://token-plan-ams.xiaomimimo.com/v1",
+          "protocols": ["chat"],
+          "plans": ["Token Plan"],
+          "source": "https://mimo.mi.com/docs/tokenplan/subscription",
+          "request_urls": {
+            "chat": "https://token-plan-ams.xiaomimimo.com/v1/chat/completions"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "mimo-08",
+          "label": "Token Plan 欧洲 anthropic",
+          "base_url": "https://token-plan-ams.xiaomimimo.com/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["Token Plan"],
+          "source": "https://mimo.mi.com/docs/tokenplan/subscription",
+          "request_urls": {
+            "anthropic": "https://token-plan-ams.xiaomimimo.com/anthropic/v1/messages"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        }
+      ]
+    },
+    {
+      "id": "qwen",
+      "label": "阿里云百炼 / Qwen",
+      "family": "qwen",
+      "logo": "qwen.png",
+      "protocol": "chat",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "source": "https://help.aliyun.com/en/model-studio/base-url",
+      "endpoints": [
+        {
+          "id": "qwen-01",
+          "label": "按量 北京 OpenAI",
+          "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+          "protocols": ["chat"],
+          "plans": ["按量 API"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "chat": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+          }
+        },
+        {
+          "id": "qwen-02",
+          "label": "按量 北京 Anthropic",
+          "base_url": "https://dashscope.aliyuncs.com/apps/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["按量 API"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "anthropic": "https://dashscope.aliyuncs.com/apps/anthropic/v1/messages"
+          }
+        },
+        {
+          "id": "qwen-03",
+          "label": "按量 新加坡 OpenAI",
+          "base_url": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+          "protocols": ["chat"],
+          "plans": ["按量 API"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "chat": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
+          }
+        },
+        {
+          "id": "qwen-04",
+          "label": "按量 新加坡 Anthropic",
+          "base_url": "https://dashscope-intl.aliyuncs.com/apps/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["按量 API"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "anthropic": "https://dashscope-intl.aliyuncs.com/apps/anthropic/v1/messages"
+          }
+        },
+        {
+          "id": "qwen-05",
+          "label": "按量 美国弗吉尼亚 OpenAI",
+          "base_url": "https://dashscope-us.aliyuncs.com/compatible-mode/v1",
+          "protocols": ["chat"],
+          "plans": ["按量 API"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "chat": "https://dashscope-us.aliyuncs.com/compatible-mode/v1/chat/completions"
+          }
+        },
+        {
+          "id": "qwen-06",
+          "label": "按量 美国弗吉尼亚 Anthropic",
+          "base_url": "https://dashscope-us.aliyuncs.com/apps/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["按量 API"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "anthropic": "https://dashscope-us.aliyuncs.com/apps/anthropic/v1/messages"
+          }
+        },
+        {
+          "id": "qwen-07",
+          "label": "按量 中国香港 OpenAI",
+          "base_url": "https://cn-hongkong.dashscope.aliyuncs.com/compatible-mode/v1",
+          "protocols": ["chat"],
+          "plans": ["按量 API"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "chat": "https://cn-hongkong.dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+          }
+        },
+        {
+          "id": "qwen-08",
+          "label": "按量 中国香港 Anthropic",
+          "base_url": "https://cn-hongkong.dashscope.aliyuncs.com/apps/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["按量 API"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "anthropic": "https://cn-hongkong.dashscope.aliyuncs.com/apps/anthropic/v1/messages"
+          }
+        },
+        {
+          "id": "qwen-09",
+          "label": "Coding Plan OpenAI",
+          "base_url": "https://coding.dashscope.aliyuncs.com/v1",
+          "protocols": ["chat"],
+          "plans": ["Coding Plan"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "chat": "https://coding.dashscope.aliyuncs.com/v1/chat/completions"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "qwen-10",
+          "label": "Coding Plan Anthropic",
+          "base_url": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["Coding Plan"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "anthropic": "https://coding.dashscope.aliyuncs.com/apps/anthropic/v1/messages"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "qwen-11",
+          "label": "Token Plan OpenAI",
+          "base_url": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+          "protocols": ["chat"],
+          "plans": ["Token Plan"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "chat": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/chat/completions"
+          }
+        },
+        {
+          "id": "qwen-12",
+          "label": "Token Plan Anthropic",
+          "base_url": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["Token Plan"],
+          "source": "https://help.aliyun.com/en/model-studio/base-url",
+          "request_urls": {
+            "anthropic": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic/v1/messages"
+          }
+        }
+      ]
+    },
+    {
+      "id": "kimi",
+      "label": "月之暗面 Kimi",
+      "family": "kimi",
+      "logo": "kimi.png",
+      "protocol": "chat",
+      "base_url": "https://api.moonshot.ai/v1",
+      "source": "https://platform.kimi.ai/docs/api/chat",
+      "endpoints": [
+        {
+          "id": "kimi-01",
+          "label": "国际开放平台",
+          "base_url": "https://api.moonshot.ai/v1",
+          "protocols": ["chat", "responses"],
+          "plans": ["Moonshot API"],
+          "source": "https://platform.kimi.ai/docs/api/chat",
+          "request_urls": {
+            "chat": "https://api.moonshot.ai/v1/chat/completions",
+            "responses": "https://api.moonshot.ai/v1/responses"
+          }
+        },
+        {
+          "id": "kimi-02",
+          "label": "国内开放平台",
+          "base_url": "https://api.moonshot.cn/v1",
+          "protocols": ["chat", "responses"],
+          "plans": ["Moonshot API"],
+          "source": "https://platform.moonshot.cn/docs/api/chat",
+          "request_urls": {
+            "chat": "https://api.moonshot.cn/v1/chat/completions",
+            "responses": "https://api.moonshot.cn/v1/responses"
+          }
+        },
+        {
+          "id": "kimi-03",
+          "label": "Kimi Code 国内 OpenAI",
+          "base_url": "https://api.kimi.com/coding/v1",
+          "protocols": ["chat", "responses"],
+          "plans": ["Kimi Code 会员权益"],
+          "source": "https://www.kimi.com/code/docs/kimi-code/models.html",
+          "request_urls": {
+            "chat": "https://api.kimi.com/coding/v1/chat/completions",
+            "responses": "https://api.kimi.com/coding/v1/responses"
+          }
+        },
+        {
+          "id": "kimi-04",
+          "label": "Kimi Code 国内 Anthropic",
+          "base_url": "https://api.kimi.com/coding",
+          "protocols": ["anthropic"],
+          "plans": ["Kimi Code 会员权益"],
+          "source": "https://www.kimi.com/code/docs/kimi-code/models.html",
+          "request_urls": {
+            "anthropic": "https://api.kimi.com/coding/v1/messages"
+          }
+        },
+        {
+          "id": "kimi-05",
+          "label": "Kimi Code 海外 OpenAI",
+          "base_url": "https://api.kimi.ai/coding/v1",
+          "protocols": ["chat", "responses"],
+          "plans": ["Kimi Code 会员权益"],
+          "source": "https://www.kimi.com/code/docs/kimi-code/models.html",
+          "request_urls": {
+            "chat": "https://api.kimi.ai/coding/v1/chat/completions",
+            "responses": "https://api.kimi.ai/coding/v1/responses"
+          }
+        },
+        {
+          "id": "kimi-06",
+          "label": "Kimi Code 海外 Anthropic",
+          "base_url": "https://api.kimi.ai/coding",
+          "protocols": ["anthropic"],
+          "plans": ["Kimi Code 会员权益"],
+          "source": "https://www.kimi.com/code/docs/kimi-code/models.html",
+          "request_urls": {
+            "anthropic": "https://api.kimi.ai/coding/v1/messages"
+          }
+        }
+      ]
+    },
+    {
+      "id": "openrouter",
+      "label": "OpenRouter",
+      "family": "custom",
+      "logo": "openrouter.svg",
+      "protocol": "chat",
+      "base_url": "https://openrouter.ai/api/v1",
+      "source": "https://openrouter.ai/docs/quickstart",
+      "endpoints": [
+        {
+          "id": "openrouter-01",
+          "label": "全球",
+          "base_url": "https://openrouter.ai/api/v1",
+          "protocols": ["chat"],
+          "plans": ["OpenRouter API"],
+          "source": "https://openrouter.ai/docs/quickstart",
+          "request_urls": {
+            "chat": "https://openrouter.ai/api/v1/chat/completions"
+          }
+        },
+        {
+          "id": "openrouter-02",
+          "label": "欧盟区域",
+          "base_url": "https://eu.openrouter.ai/api/v1",
+          "protocols": ["chat"],
+          "plans": ["Business 欧盟路由（需符合开通条件）"],
+          "source": "https://openrouter.ai/docs/quickstart",
+          "request_urls": {
+            "chat": "https://eu.openrouter.ai/api/v1/chat/completions"
+          }
+        }
+      ]
+    },
+    {
+      "id": "opencode",
+      "label": "OpenCode",
+      "family": "custom",
+      "logo": "opencode.png",
+      "protocol": "chat",
+      "base_url": "https://opencode.ai/inference/openai/v1",
+      "source": "https://opencode.ai/v2/docs/console/api/inference/",
+      "endpoints": [
+        {
+          "id": "opencode-01",
+          "label": "按量 OpenAI",
+          "base_url": "https://opencode.ai/inference/openai/v1",
+          "protocols": ["chat", "responses"],
+          "plans": ["Console 按量 API"],
+          "source": "https://opencode.ai/v2/docs/console/api/inference/",
+          "request_urls": {
+            "chat": "https://opencode.ai/inference/openai/v1/chat/completions",
+            "responses": "https://opencode.ai/inference/openai/v1/responses"
+          },
+          "models_url": "https://opencode.ai/inference/v1/models"
+        },
+        {
+          "id": "opencode-02",
+          "label": "按量 Anthropic",
+          "base_url": "https://opencode.ai/inference/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["Console 按量 API"],
+          "source": "https://opencode.ai/v2/docs/console/api/inference/",
+          "request_urls": {
+            "anthropic": "https://opencode.ai/inference/anthropic/v1/messages"
+          },
+          "models_url": "https://opencode.ai/inference/v1/models"
+        },
+        {
+          "id": "opencode-03",
+          "label": "按量 Gemini",
+          "base_url": "https://opencode.ai/inference/google/v1beta",
+          "protocols": ["gemini"],
+          "plans": ["Console 按量 API"],
+          "source": "https://opencode.ai/v2/docs/console/api/inference/",
+          "request_urls": {
+            "gemini": "https://opencode.ai/inference/google/v1beta/models/{model}:generateContent"
+          },
+          "models_url": "https://opencode.ai/inference/v1/models"
+        },
+        {
+          "id": "opencode-04",
+          "label": "Go / Go Plus OpenAI",
+          "base_url": "https://opencode.ai/inference/go/openai/v1",
+          "protocols": ["chat", "responses"],
+          "plans": ["Go", "Go Plus"],
+          "source": "https://opencode.ai/v2/docs/console/go/",
+          "request_urls": {
+            "chat": "https://opencode.ai/inference/go/openai/v1/chat/completions",
+            "responses": "https://opencode.ai/inference/go/openai/v1/responses"
+          },
+          "models_url": "https://opencode.ai/inference/go/v1/models"
+        },
+        {
+          "id": "opencode-05",
+          "label": "Go / Go Plus Anthropic",
+          "base_url": "https://opencode.ai/inference/go/anthropic",
+          "protocols": ["anthropic"],
+          "plans": ["Go", "Go Plus"],
+          "source": "https://opencode.ai/v2/docs/console/go/",
+          "request_urls": {
+            "anthropic": "https://opencode.ai/inference/go/anthropic/v1/messages"
+          },
+          "models_url": "https://opencode.ai/inference/go/v1/models"
+        },
+        {
+          "id": "opencode-06",
+          "label": "Go / Go Plus Gemini",
+          "base_url": "https://opencode.ai/inference/go/google/v1beta",
+          "protocols": ["gemini"],
+          "plans": ["Go", "Go Plus"],
+          "source": "https://opencode.ai/v2/docs/console/go/",
+          "request_urls": {
+            "gemini": "https://opencode.ai/inference/go/google/v1beta/models/{model}:generateContent"
+          },
+          "models_url": "https://opencode.ai/inference/go/v1/models"
+        }
+      ]
+    },
+    {
+      "id": "command",
+      "label": "Command Code",
+      "family": "custom",
+      "logo": "command.svg",
+      "protocol": "chat",
+      "base_url": "https://api.commandcode.ai/provider/v1",
+      "source": "https://commandcode.ai/docs/provider",
+      "endpoints": [
+        {
+          "id": "command-01",
+          "label": "Provider API（共用）",
+          "base_url": "https://api.commandcode.ai/provider/v1",
+          "protocols": ["chat", "responses", "anthropic"],
+          "plans": ["GOAT", "Pro", "Max", "Team", "Provider 按量"],
+          "source": "https://commandcode.ai/docs/provider",
+          "request_urls": {
+            "chat": "https://api.commandcode.ai/provider/v1/chat/completions",
+            "responses": "https://api.commandcode.ai/provider/v1/responses",
+            "anthropic": "https://api.commandcode.ai/provider/v1/messages"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ark",
+      "label": "火山方舟",
+      "family": "custom",
+      "logo": "ark.png",
+      "protocol": "chat",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "source": "https://docs.volcengine.com/docs/ark/integrate-third-party-tools?lang=zh",
+      "endpoints": [
+        {
+          "id": "ark-01",
+          "label": "按量 OpenAI",
+          "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+          "protocols": ["chat", "responses"],
+          "plans": ["方舟按量 API"],
+          "source": "https://docs.volcengine.com/docs/ark/integrate-third-party-tools?lang=zh",
+          "request_urls": {
+            "chat": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+            "responses": "https://ark.cn-beijing.volces.com/api/v3/responses"
+          }
+        },
+        {
+          "id": "ark-02",
+          "label": "按量 Anthropic",
+          "base_url": "https://ark.cn-beijing.volces.com/api/compatible",
+          "protocols": ["anthropic"],
+          "plans": ["方舟按量 API"],
+          "source": "https://docs.volcengine.com/docs/ark/integrate-third-party-tools?lang=zh",
+          "request_urls": {
+            "anthropic": "https://ark.cn-beijing.volces.com/api/compatible/v1/messages"
+          }
+        },
+        {
+          "id": "ark-03",
+          "label": "Coding Plan OpenAI",
+          "base_url": "https://ark.cn-beijing.volces.com/api/coding/v3",
+          "protocols": ["chat"],
+          "plans": ["Coding Plan"],
+          "source": "https://docs.volcengine.com/docs/ark/coding-plan-personal-plan-overview?lang=zh",
+          "request_urls": {
+            "chat": "https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "ark-04",
+          "label": "Coding Plan Anthropic",
+          "base_url": "https://ark.cn-beijing.volces.com/api/coding",
+          "protocols": ["anthropic"],
+          "plans": ["Coding Plan"],
+          "source": "https://docs.volcengine.com/docs/ark/coding-plan-personal-plan-overview?lang=zh",
+          "request_urls": {
+            "anthropic": "https://ark.cn-beijing.volces.com/api/coding/v1/messages"
+          },
+          "note": "使用对应套餐专属密钥；适用范围以官方套餐说明为准。"
+        },
+        {
+          "id": "ark-05",
+          "label": "Agent Plan OpenAI",
+          "base_url": "https://ark.cn-beijing.volces.com/api/plan/v3",
+          "protocols": ["chat", "responses"],
+          "plans": ["Agent Plan 个人", "Agent Plan 企业"],
+          "source": "https://docs.volcengine.com/docs/ark/agent-plan-personal-deepseek-harness?lang=zh",
+          "request_urls": {
+            "chat": "https://ark.cn-beijing.volces.com/api/plan/v3/chat/completions",
+            "responses": "https://ark.cn-beijing.volces.com/api/plan/v3/responses"
+          }
+        },
+        {
+          "id": "ark-06",
+          "label": "Agent Plan Anthropic",
+          "base_url": "https://ark.cn-beijing.volces.com/api/plan",
+          "protocols": ["anthropic"],
+          "plans": ["Agent Plan 个人", "Agent Plan 企业"],
+          "source": "https://docs.volcengine.com/docs/ark/agent-plan-personal-deepseek-harness?lang=zh",
+          "request_urls": {
+            "anthropic": "https://ark.cn-beijing.volces.com/api/plan/v1/messages"
+          }
+        }
+      ]
+    }
+  ],
+  "legacy_aliases": {
+    "platform-codex": "openai",
+    "platform-gemini": "gemini",
+    "platform-grok": "grok",
+    "muse": "meta",
+    "platform-claude": "claude",
+    "platform-zcode": "glm",
+    "hunyuan": "tencent",
+    "mimo-token-plan": "mimo",
+    "platform-kimi": "kimi",
+    "platform-openrouter": "openrouter",
+    "platform-opencode": "opencode",
+    "platform-command": "command",
+    "platform-ark-coding": "ark",
+    "platform-ark-agent": "ark",
+    "platform-cursor": "custom",
+    "platform-kiro": "custom",
+    "platform-copilot": "custom",
+    "platform-antigravity": "custom",
+    "platform-qoder": "custom",
+    "platform-qoder-cn": "custom",
+    "platform-devin": "custom"
+  },
+  "legacy_defaults": {
+    "openai": {
+      "preset_id": "openai",
+      "base_url": "https://api.openai.com/v1",
+      "protocol": "responses",
+      "family": "openai"
+    },
+    "platform-codex": {
+      "preset_id": "openai",
+      "base_url": "https://api.openai.com/v1",
+      "protocol": "responses",
+      "family": "openai"
+    },
+    "gemini": {
+      "preset_id": "gemini",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "protocol": "gemini",
+      "family": "gemini"
+    },
+    "platform-gemini": {
+      "preset_id": "gemini",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "protocol": "gemini",
+      "family": "gemini"
+    },
+    "grok": {
+      "preset_id": "grok",
+      "base_url": "https://api.x.ai/v1",
+      "protocol": "responses",
+      "family": "grok"
+    },
+    "platform-grok": {
+      "preset_id": "grok",
+      "base_url": "",
+      "protocol": "responses",
+      "family": "grok"
+    },
+    "muse": {
+      "preset_id": "meta",
+      "base_url": "https://api.meta.ai/v1",
+      "protocol": "responses",
+      "family": "muse"
+    },
+    "claude": {
+      "preset_id": "claude",
+      "base_url": "https://api.anthropic.com/v1",
+      "protocol": "anthropic",
+      "family": "claude"
+    },
+    "platform-claude": {
+      "preset_id": "claude",
+      "base_url": "https://api.anthropic.com/v1",
+      "protocol": "anthropic",
+      "family": "claude"
+    },
+    "deepseek": {
+      "preset_id": "deepseek",
+      "base_url": "https://api.deepseek.com",
+      "protocol": "chat",
+      "family": "deepseek"
+    },
+    "glm": {
+      "preset_id": "glm",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "protocol": "chat",
+      "family": "glm"
+    },
+    "platform-zcode": {
+      "preset_id": "glm",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "minimax": {
+      "preset_id": "minimax",
+      "base_url": "https://api.minimax.io/v1",
+      "protocol": "chat",
+      "family": "minimax"
+    },
+    "hunyuan": {
+      "preset_id": "tencent",
+      "base_url": "https://api.hunyuan.cloud.tencent.com/v1",
+      "protocol": "chat",
+      "family": "hunyuan"
+    },
+    "mimo": {
+      "preset_id": "mimo",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "protocol": "chat",
+      "family": "mimo"
+    },
+    "mimo-token-plan": {
+      "preset_id": "mimo",
+      "base_url": "https://token-plan-cn.xiaomimimo.com/v1",
+      "protocol": "chat",
+      "family": "mimo"
+    },
+    "qwen": {
+      "preset_id": "qwen",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "protocol": "chat",
+      "family": "qwen"
+    },
+    "kimi": {
+      "preset_id": "kimi",
+      "base_url": "https://api.moonshot.ai/v1",
+      "protocol": "chat",
+      "family": "kimi"
+    },
+    "platform-kimi": {
+      "preset_id": "kimi",
+      "base_url": "https://api.moonshot.ai/v1",
+      "protocol": "chat",
+      "family": "kimi"
+    },
+    "platform-openrouter": {
+      "preset_id": "openrouter",
+      "base_url": "https://openrouter.ai/api/v1",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-opencode": {
+      "preset_id": "opencode",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-command": {
+      "preset_id": "command",
+      "base_url": "",
+      "protocol": "anthropic",
+      "family": "custom"
+    },
+    "platform-ark-coding": {
+      "preset_id": "ark",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-ark-agent": {
+      "preset_id": "ark",
+      "base_url": "",
+      "protocol": "responses",
+      "family": "custom"
+    },
+    "platform-cursor": {
+      "preset_id": "custom",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-kiro": {
+      "preset_id": "custom",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-copilot": {
+      "preset_id": "custom",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-antigravity": {
+      "preset_id": "custom",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-qoder": {
+      "preset_id": "custom",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-qoder-cn": {
+      "preset_id": "custom",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    },
+    "platform-devin": {
+      "preset_id": "custom",
+      "base_url": "",
+      "protocol": "chat",
+      "family": "custom"
+    }
+  }
+}

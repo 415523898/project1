@@ -1,0 +1,115 @@
+[
+  {
+    "id": "openai",
+    "name": "OpenAI",
+    "official_page": "https://github.com/openai",
+    "kind": "官方认证组织头像",
+    "source_asset": "../provider-logos-20261023/assets/openai.png"
+  },
+  {
+    "id": "gemini",
+    "name": "Google Gemini",
+    "official_page": "https://gemini.google.com/",
+    "kind": "官方应用图标",
+    "source_asset": "../provider-logos-20261023/assets/gemini.png"
+  },
+  {
+    "id": "grok",
+    "name": "xAI Grok",
+    "official_page": "https://grok.com/",
+    "kind": "官方应用 SVG",
+    "source_asset": "../provider-logos-20261023/assets/grok.svg"
+  },
+  {
+    "id": "meta",
+    "name": "Meta Model API / Muse",
+    "official_page": "https://ai.meta.com/",
+    "kind": "Meta 官网使用的公司标识；未确认 Muse 独立图标",
+    "source_asset": "../provider-logos-20261023/assets/muse.svg"
+  },
+  {
+    "id": "claude",
+    "name": "Anthropic Claude",
+    "official_page": "https://claude.com/",
+    "kind": "独立图标，不展示右侧字标",
+    "source_asset": "assets/claude-symbol.svg"
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek",
+    "official_page": "https://github.com/deepseek-ai/DeepSeek-LLM/blob/main/images/logo.svg",
+    "kind": "独立图标，不展示右侧字标",
+    "source_asset": "assets/deepseek-symbol.svg"
+  },
+  {
+    "id": "glm",
+    "name": "智谱 BigModel / Z.ai（含 ZCode 接入）",
+    "official_page": "https://bigmodel.cn/",
+    "kind": "官方开放平台图标",
+    "source_asset": "../provider-logos-20261023/assets/glm.png"
+  },
+  {
+    "id": "minimax",
+    "name": "MiniMax",
+    "official_page": "https://www.minimax.cn/brand-vi",
+    "kind": "官方品牌素材包中的独立矢量图标",
+    "source_asset": "assets/minimax-symbol.svg",
+    "asset_url": "https://filecdn.minimax.chat/public/brand-vi/20260914/MiniMax_Logo_Asset.zip"
+  },
+  {
+    "id": "tencent",
+    "name": "腾讯混元 / TokenHub",
+    "official_page": "https://hunyuan.tencent.com/",
+    "kind": "官网引用的混元 SVG",
+    "source_asset": "../provider-logos-20261023/assets/hunyuan.svg"
+  },
+  {
+    "id": "mimo",
+    "name": "小米 MiMo",
+    "official_page": "https://mimo.mi.com/",
+    "kind": "官方应用图标；按量和 Token Plan 共用品牌",
+    "source_asset": "../provider-logos-20261023/assets/mimo.png"
+  },
+  {
+    "id": "qwen",
+    "name": "阿里云百炼 / Qwen",
+    "official_page": "https://qwen.ai/",
+    "kind": "官方应用图标",
+    "source_asset": "../provider-logos-20261023/assets/qwen.png"
+  },
+  {
+    "id": "kimi",
+    "name": "月之暗面 Kimi",
+    "official_page": "https://moonshotai.github.io/Branding-Guide/",
+    "kind": "官方品牌规范中的独立图标",
+    "source_asset": "../provider-logos-20261023/assets/kimi.png"
+  },
+  {
+    "id": "openrouter",
+    "name": "OpenRouter",
+    "official_page": "https://openrouter.ai/brand/",
+    "kind": "官方品牌包 Glyph",
+    "source_asset": "../provider-logos-20261023/assets/openrouter.svg"
+  },
+  {
+    "id": "opencode",
+    "name": "OpenCode",
+    "official_page": "https://opencode.ai/brand",
+    "kind": "官方应用图标；Go 使用 OpenCode 品牌",
+    "source_asset": "../provider-logos-20261023/assets/opencode.png"
+  },
+  {
+    "id": "command",
+    "name": "Command Code",
+    "official_page": "https://commandcode.ai/",
+    "kind": "官网页眉原始 SVG 字标",
+    "source_asset": "../provider-logos-20261023/assets/command.svg"
+  },
+  {
+    "id": "ark",
+    "name": "火山方舟",
+    "official_page": "https://www.volcengine.com/product/ark",
+    "kind": "火山引擎母品牌标识；未确认套餐独立图标",
+    "source_asset": "../provider-logos-20261023/assets/ark.png"
+  }
+]

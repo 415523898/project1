@@ -1,0 +1,234 @@
+/* Shared feedback for the settings surface and its nested model editor. */
+:is(.settings-dialog, .model-config-dialog)[open] {
+  --settings-inset: 20px;
+  --settings-action-text: var(--dsw-action-fill);
+  font-size: var(--dsw-text-sm);
+  line-height: 1.6;
+  color-scheme: light;
+  overflow-wrap: anywhere;
+}
+body[data-theme='dark'] :is(.settings-dialog, .model-config-dialog)[open] {
+  --settings-action-text: var(--dsw-alias-link);
+  color-scheme: dark;
+}
+:is(.settings-dialog, .model-config-dialog)[open] :is(h2, .field-name) {
+  line-height: 1.5;
+}
+:is(.settings-dialog, .model-config-dialog)[open] h2 {
+  font-size: var(--dsw-text-lg);
+}
+:is(.settings-dialog, .model-config-dialog)[open] :is(.primary, .secondary) {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  gap: 5px;
+  min-height: 32px;
+  max-width: 100%;
+  padding: 6px 12px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: var(--dsw-radius-sm);
+  background: var(--dsw-alias-bg-layer-1);
+  color: var(--dsw-alias-text-primary);
+  font: inherit;
+  font-size: var(--dsw-text-sm);
+  line-height: 1.5;
+  white-space: normal;
+  cursor: pointer;
+}
+:is(.settings-dialog, .model-config-dialog)[open] .primary {
+  color: var(--dsw-action-ink);
+  background: var(--dsw-action-fill);
+  border-color: transparent;
+}
+:is(.settings-dialog, .model-config-dialog)[open] .primary:not(:disabled):hover {
+  background: var(--dsw-action-hover);
+}
+:is(.settings-dialog, .model-config-dialog)[open] button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+:is(.settings-dialog, .model-config-dialog)[open] :is(.icon, .icon-button) {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  flex: none;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+  border-radius: 6px;
+}
+.model-config-dialog .icon svg {
+  width: 15px;
+  height: 15px;
+}
+:is(.settings-dialog, .model-config-dialog)[open]
+  :is(.intro, .platform-hint, .privacy-note, .form-note, small, .muted) {
+  color: var(--dsw-alias-text-secondary);
+}
+:is(.settings-dialog, .model-config-dialog)[open]
+  :is(input:not([type='checkbox']), select, textarea) {
+  min-width: 0;
+  font-size: var(--dsw-text-row);
+  line-height: 1.5;
+}
+:is(.settings-dialog, .model-config-dialog)[open]
+  :is(button, input, select, textarea, a, summary):focus-visible {
+  outline: 2px solid var(--dsw-focus-ring);
+  outline-offset: 2px;
+}
+:is(.settings-dialog, .model-config-dialog)[open][data-compact-height] {
+  position: fixed;
+  top: var(--dialog-viewport-top, 0px);
+  margin-block: 12px 0;
+  max-height: max(1px, calc(var(--dialog-viewport-height, 100dvh) - 24px));
+  overflow-y: auto;
+}
+:is(.settings-dialog, .model-config-dialog)[open][data-compact-height] > form {
+  max-height: none;
+  overflow: visible;
+}
+:is(.settings-dialog, .model-config-dialog)[open][data-compact-height]
+  :is(.settings-scroll, .editor-scroll) {
+  overflow: visible;
+  flex: none;
+}
+:is(.settings-dialog, .model-config-dialog)[open] :is(footer, .dialog-footer) {
+  flex-wrap: wrap;
+}
+.model-config-dialog .reset {
+  min-height: 32px;
+}
+.model-config-dialog[open] .reset {
+  color: var(--dsw-alias-text-secondary);
+}
+.model-config-dialog .level-chip button {
+  min-width: 24px;
+  min-height: 24px;
+}
+@media (max-width: 560px) {
+  :is(.settings-dialog, .model-config-dialog)[open] {
+    --settings-inset: 16px;
+  }
+  .settings-dialog .added-provider {
+    flex-wrap: wrap;
+  }
+  .settings-dialog .added-identity {
+    flex-basis: calc(100% - 42px);
+  }
+  .settings-dialog .detail-row,
+  .settings-dialog .key-label {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 760px) {
+  dialog:is(.settings-dialog, .model-config-dialog)[open] {
+    position: fixed;
+    top: var(--dialog-viewport-top, 0px);
+    margin-block: 12px 0;
+    max-height: calc(var(--dialog-viewport-height, 100dvh) - 24px);
+  }
+  dialog:is(.settings-dialog, .model-config-dialog)[open] > form {
+    max-height: calc(var(--dialog-viewport-height, 100dvh) - 26px);
+  }
+}
+:is(.settings-dialog, .model-config-dialog)[open] :is(button, input, select, textarea, a) {
+  transition:
+    background-color 150ms ease-out,
+    border-color 150ms ease-out,
+    color 150ms ease-out,
+    opacity 150ms ease-out;
+}
+:is(.settings-dialog, .model-config-dialog)[open] :is(input, select, textarea):focus-visible {
+  border-color: var(--dsw-static-deepseek-450);
+}
+:is(.settings-dialog, .model-config-dialog)[open] :is(button, a):focus-visible {
+  outline: 2px solid var(--dsw-static-deepseek-450);
+  outline-offset: 2px;
+}
+:is(.settings-dialog, .model-config-dialog)[open] button:not(:disabled):hover {
+  filter: brightness(0.97);
+}
+:is(.settings-dialog, .model-config-dialog)[open] details > summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+}
+:is(.settings-dialog, .model-config-dialog)[open] details > summary::-webkit-details-marker {
+  display: none;
+}
+:is(.settings-dialog, .model-config-dialog)[open] details > summary::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  flex: none;
+  margin: 0 3px 0 1px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 180ms ease-out;
+}
+:is(.settings-dialog, .model-config-dialog)[open]
+  details:is([open], [data-disclosure-expanded='true'])
+  > summary::before {
+  transform: rotate(45deg);
+}
+:is(.settings-dialog, .model-config-dialog)[open]
+  details[data-disclosure-expanded='false']
+  > summary::before {
+  transform: rotate(-45deg);
+}
+.settings-popover-enter-active {
+  transition:
+    opacity 160ms ease-out,
+    transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.settings-popover-leave-active {
+  transition:
+    opacity 100ms ease-out,
+    transform 100ms ease-out;
+  pointer-events: none;
+}
+.settings-popover-enter-from,
+.settings-popover-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.settings-list-enter-active,
+.settings-list-leave-active {
+  transition:
+    opacity 160ms ease-out,
+    transform 160ms ease-out;
+}
+.settings-list-move {
+  transition: none;
+}
+.settings-list-enter-from,
+.settings-list-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
+}
+.settings-list-leave-active {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.settings-dialog, .model-config-dialog)[open] :is(button, input, select, textarea, a),
+  :is(.settings-dialog, .model-config-dialog)[open] details > summary::before,
+  .settings-popover-enter-active,
+  .settings-popover-leave-active,
+  .settings-list-enter-active,
+  .settings-list-leave-active,
+  .settings-list-move {
+    transition: none;
+  }
+  .settings-popover-enter-from,
+  .settings-popover-leave-to,
+  .settings-list-enter-from,
+  .settings-list-leave-to {
+    transform: none;
+  }
+}

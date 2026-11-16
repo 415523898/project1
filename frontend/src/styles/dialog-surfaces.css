@@ -1,0 +1,74 @@
+/* Opt-in native dialogs; tables/canvases keep their own scroll/zoom owners. */
+:is(.confirm-dialog, .consent-dialog, .dataset-library-dialog, .full-data-dialog, .ai-scope)[open] {
+  box-sizing: border-box;
+  max-width: calc(100vw - 24px);
+  max-height: max(1px, calc(var(--dialog-viewport-height, 100dvh) - 24px));
+  overflow-wrap: anywhere;
+  color-scheme: light;
+}
+body[data-theme='dark']
+  :is(
+    .confirm-dialog,
+    .consent-dialog,
+    .dataset-library-dialog,
+    .full-data-dialog,
+    .ai-scope
+  )[open] {
+  color-scheme: dark;
+}
+:is(.confirm-dialog, .consent-dialog)[open] {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+:is(.confirm-actions, .scope-foot) {
+  flex-wrap: wrap;
+}
+:is(.confirm-dialog, .consent-dialog, .dataset-library-dialog, .full-data-dialog, .ai-scope)[open]
+  :is(button, input, select, textarea, a, summary):focus-visible {
+  outline: 2px solid var(--dsw-focus-ring);
+  outline-offset: 2px;
+}
+:is(.library-dialog-close, .close-data) {
+  min-width: 32px;
+  min-height: 32px;
+  color: var(--dsw-alias-text-primary);
+}
+:is(.scope-card-text strong, .scope-head p, .full-data-head p) {
+  overflow-wrap: anywhere;
+}
+:is(
+    .confirm-dialog,
+    .consent-dialog,
+    .dataset-library-dialog,
+    .full-data-dialog,
+    .ai-scope
+  )[open][data-compact-height] {
+  position: fixed;
+  top: var(--dialog-viewport-top, 0px);
+  margin-block: 12px 0;
+  height: auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.dataset-library-dialog[open][data-compact-height] .library-dialog-body {
+  flex: none;
+  overflow: visible;
+}
+.full-data-dialog[open][data-compact-height] .full-data-scroll {
+  flex: none;
+  min-height: 6lh;
+  max-height: calc(var(--dialog-viewport-height, 100dvh) * 0.55);
+  overflow: auto;
+}
+.ai-scope[open][data-compact-height] .scope-panel {
+  max-height: none;
+}
+.ai-scope[open][data-compact-height] .scope-list {
+  flex: none;
+  max-height: calc(var(--dialog-viewport-height, 100dvh) * 0.5);
+}
+@media (max-width: 420px) {
+  .account-security .password-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

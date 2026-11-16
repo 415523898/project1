@@ -1,0 +1,105 @@
+{
+  "review": "代理依据当前卡片拟定的搜索补充资料，待人工复核；不改变算法能力或卡片执行前提。",
+  "methods": {
+    "ml.random_forest": { "aliases": ["rf", "random forest"], "basis": "随机森林名称" },
+    "ml.svm": { "aliases": ["svm", "support vector machine"], "basis": "支持向量机名称" },
+    "ml.kmeans": { "aliases": ["kmeans", "k means"], "basis": "K-Means 名称" },
+    "prep.pca": {
+      "aliases": ["pca", "principal component analysis"],
+      "basis": "降维主成分名称；评价 PCA 仍由用途区分"
+    },
+    "test.anova": {
+      "aliases": ["anova", "analysis of variance"],
+      "samples": ["independent"],
+      "groups": ["many"],
+      "basis": "当前实现单因素独立组与协方差分析，不支持重复测量"
+    },
+    "test.ttest": {
+      "aliases": ["t test"],
+      "samples": ["independent", "paired"],
+      "groups": ["two"],
+      "distribution": "normal",
+      "terms": ["两组均值差异"],
+      "basis": "when 两组均值、近似正态；名称含独立和配对"
+    },
+    "test.mannwhitney": {
+      "aliases": ["mann whitney u"],
+      "samples": ["independent"],
+      "groups": ["two"],
+      "distribution": "nonparametric",
+      "terms": ["两组均值差异候选，需确认独立样本与分布条件"],
+      "basis": "when 两组独立、正态性或方差齐性不成立"
+    },
+    "test.wilcoxon": {
+      "aliases": ["wilcoxon"],
+      "samples": ["paired"],
+      "groups": ["two"],
+      "distribution": "nonparametric",
+      "terms": ["两组均值差异候选，需确认配对样本与差值条件"],
+      "basis": "when 配对、差值偏态；note 配对非参数替代，不承诺检验任意分布的均值"
+    },
+    "test.kruskal": {
+      "aliases": ["kruskal wallis"],
+      "samples": ["independent"],
+      "groups": ["many"],
+      "distribution": "nonparametric",
+      "basis": "when 多组独立、方差分析前提不满足"
+    },
+    "test.friedman": {
+      "aliases": ["friedman"],
+      "samples": ["paired"],
+      "groups": ["many"],
+      "distribution": "nonparametric",
+      "basis": "when 同一批对象、多个条件重复测量"
+    },
+    "test.cochran": {
+      "aliases": ["cochran q"],
+      "samples": ["paired"],
+      "groups": ["many"],
+      "target": "binary",
+      "basis": "when 二值响应、三个以上时点重复测量"
+    },
+    "model.logistic": {
+      "aliases": ["logistic regression"],
+      "target": "categorical",
+      "basis": "when 分类响应、优势比"
+    },
+    "model.linear": {
+      "aliases": ["linear regression"],
+      "target": "continuous",
+      "basis": "when 连续因变量"
+    },
+    "model.gamma": { "target": "positive", "basis": "when 正连续量、方差随均值增大" },
+    "model.poisson": {
+      "aliases": ["poisson regression"],
+      "target": "count",
+      "basis": "when 次数、件数、人数"
+    },
+    "prep.missing": { "terms": ["空白单元格补齐"], "basis": "when 空缺不丢行；note 多种填充" },
+    "causal.did": { "aliases": ["did", "difference in differences"], "basis": "双重差分名称" },
+    "causal.psm": {
+      "aliases": ["psm", "propensity score matching"],
+      "basis": "倾向得分匹配；PSM 歧义保留两张卡"
+    },
+    "domain.psm": {
+      "aliases": ["psm", "price sensitivity measurement"],
+      "basis": "价格敏感度测试；PSM 歧义保留两张卡"
+    },
+    "domain.tfidf": { "aliases": ["tf idf"], "basis": "TF-IDF 名称" },
+    "series.arima": {
+      "aliases": ["arima"],
+      "temporalForecast": true,
+      "basis": "when 单变量短期预测；仍需确认平稳性"
+    },
+    "series.sarima": {
+      "aliases": ["sarima"],
+      "temporalForecast": true,
+      "basis": "when 稳定季节周期；不能推断用户存在季节性"
+    },
+    "series.var": {
+      "aliases": ["var"],
+      "temporalForecast": true,
+      "basis": "when 多序列相互动态；需确认多个序列"
+    }
+  }
+}

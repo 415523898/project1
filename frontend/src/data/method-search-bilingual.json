@@ -1,0 +1,2759 @@
+{
+ "methods": {
+  "prep.outliers": {
+   "en_name": "Outlier Detection and Treatment",
+   "en_description": "Detects anomalous observations using IQR or Z-scores and treats them via capping or clipping when points deviate strongly but are not data-entry errors.",
+   "en_keywords": [
+    "outlier detection",
+    "anomaly",
+    "iqr",
+    "z-score",
+    "extreme value",
+    "clipping",
+    "capping",
+    "robust scaling"
+   ],
+   "zh_examples": [
+    "数据里有几个点特别离谱，但确认不是录错了，该怎么处理？",
+    "怎么判断哪些是异常值，又不直接删掉它们？",
+    "箱线图外的点要怎么处理才不影响模型？"
+   ],
+   "en_examples": [
+    "How do I handle extreme values that aren't data-entry errors?",
+    "Which points should I treat as outliers before modeling?",
+    "Should I remove or cap the anomalous observations in my data?"
+   ]
+  },
+  "prep.missing": {
+   "en_name": "Missing Value Imputation",
+   "en_description": "Fills gaps in tabular data using mean, median, mode, KNN, or iterative regression imputation when rows cannot simply be dropped.",
+   "en_keywords": [
+    "missing data",
+    "imputation",
+    "nan",
+    "null values",
+    "knn imputer",
+    "mean fill",
+    "median fill",
+    "listwise deletion"
+   ],
+   "zh_examples": [
+    "表里有一堆空值，但不能整行删掉，怎么办？",
+    "缺失数据一般怎么填比较合理？",
+    "用均值填充还是用别的方法填缺失值？"
+   ],
+   "en_examples": [
+    "What's the best way to fill in missing values without dropping rows?",
+    "How should I impute NaNs in my dataset?",
+    "Is mean imputation good enough for my missing data?"
+   ]
+  },
+  "prep.duplicates": {
+   "en_name": "Duplicate Record Removal",
+   "en_description": "Identifies and removes duplicate rows or keys after merging tables or repeated submissions to guarantee record uniqueness.",
+   "en_keywords": [
+    "duplicate",
+    "deduplication",
+    "unique records",
+    "duplicated rows",
+    "record uniqueness",
+    "data merging",
+    "id conflict"
+   ],
+   "zh_examples": [
+    "合并了好几张表之后好像有重复记录，怎么查？",
+    "数据里有重复提交的行，应该怎么去重？",
+    "怎么确认每条记录是唯一的？"
+   ],
+   "en_examples": [
+    "How do I find and remove duplicate rows after merging files?",
+    "Why do I have repeated records in my dataset?",
+    "How can I check that my data has unique entries?"
+   ]
+  },
+  "prep.encoding": {
+   "en_name": "Categorical Variable Encoding",
+   "en_description": "Converts categorical features into numeric form using one-hot, ordinal, or target encoding so models can consume them.",
+   "en_keywords": [
+    "encoding",
+    "one-hot encoding",
+    "dummy variables",
+    "ordinal encoding",
+    "target encoding",
+    "label encoding",
+    "categorical features"
+   ],
+   "zh_examples": [
+    "分类变量怎么变成数字才能放进模型？",
+    "独热编码和序号编码什么时候用哪个？",
+    "类别特征太多，编码后维度爆炸怎么办？"
+   ],
+   "en_examples": [
+    "How do I convert categorical columns into numbers for my model?",
+    "When should I use one-hot vs ordinal encoding?",
+    "My category feature has too many levels—what encoding should I use?"
+   ]
+  },
+  "prep.derive": {
+   "en_name": "Feature Construction",
+   "en_description": "Creates new interpretable variables from raw columns—ratios, products, polynomials, or binned discretization—when existing fields are insufficient.",
+   "en_keywords": [
+    "feature engineering",
+    "feature construction",
+    "interaction terms",
+    "polynomial features",
+    "binning",
+    "discretization",
+    "ratio feature",
+    "derived variables"
+   ],
+   "zh_examples": [
+    "现有字段信息不够，能不能自己造一些新特征？",
+    "怎么构造交互项或者做分箱？",
+    "把连续变量离散化成几档有什么方法？"
+   ],
+   "en_examples": [
+    "How can I create new features from existing columns?",
+    "What are good ways to build interaction or polynomial terms?",
+    "Should I bin this continuous variable into categories?"
+   ]
+  },
+  "prep.winsorize": {
+   "en_name": "Winsorization",
+   "en_description": "Compresses extreme values to given quantiles so outliers still exist but no longer dominate analysis or model training.",
+   "en_keywords": [
+    "winsorize",
+    "winsorization",
+    "quantile capping",
+    "percentile trim",
+    "extreme value",
+    "robust transformation",
+    "tail trimming"
+   ],
+   "zh_examples": [
+    "不想删掉极端值，但又怕它影响结果，怎么办？",
+    "把上下 1% 的值压缩一下是什么操作？",
+    "怎么让离群点保留但不至于主导回归？"
+   ],
+   "en_examples": [
+    "How can I keep extreme values from dominating my results?",
+    "What does compressing values to the 1st and 99th percentile mean?",
+    "Should I trim or winsorize the tails of my variable?"
+   ]
+  },
+  "prep.transform": {
+   "en_name": "Box-Cox Yeo-Johnson Transform",
+   "en_description": "Applies power transforms to skewed variables so they become more normal and variance-stabilized, useful before regression or Gaussian-based modeling.",
+   "en_keywords": [
+    "box-cox",
+    "yeo-johnson",
+    "power transform",
+    "skewness",
+    "normality",
+    "variance stabilization",
+    "log transform",
+    "feature transformation"
+   ],
+   "zh_examples": [
+    "这个变量右偏得很厉害，怎么把它变得接近正态分布？",
+    "收入数据方差随均值变大，有什么办法稳定一下方差？",
+    "要不要先做个对数变换再建模？"
+   ],
+   "en_examples": [
+    "How do I make this skewed variable look more normal before regression?",
+    "My feature variance grows with its mean — what transform should I use?",
+    "Can I normalize highly skewed numeric features automatically?"
+   ]
+  },
+  "prep.balance": {
+   "en_name": "Class Imbalance Handling",
+   "en_description": "Handles severely imbalanced classification by resampling, class weights, or synthetic examples so the model does not only predict the majority class.",
+   "en_keywords": [
+    "class imbalance",
+    "oversampling",
+    "undersampling",
+    "smote",
+    "class weights",
+    "imbalanced-learn",
+    "resampling",
+    "minority class"
+   ],
+   "zh_examples": [
+    "正样本只占1%，模型全预测成负的了怎么办？",
+    "有没有办法让少数类也被模型学到？",
+    "分类数据严重不平衡，怎么处理比较好？"
+   ],
+   "en_examples": [
+    "My classifier only predicts the majority class — how do I fix that?",
+    "How can I balance a dataset with 99% negative samples?",
+    "What resampling technique works for rare-event classification?"
+   ]
+  },
+  "prep.scale": {
+   "en_name": "Feature Scaling Normalization",
+   "en_description": "Standardizes or rescales features with different units so distance-based and gradient-based methods behave reliably.",
+   "en_keywords": [
+    "standardization",
+    "normalization",
+    "z-score",
+    "min-max scaling",
+    "feature scaling",
+    "unit scaling",
+    "robust scaling",
+    "centering"
+   ],
+   "zh_examples": [
+    "特征单位差太多，kmeans结果好像受影响了，要怎么缩放？",
+    "这几个指标量纲不一样，先做标准化吗？",
+    "归一化和标准化该选哪个？"
+   ],
+   "en_examples": [
+    "Should I scale my features before running k-means or SVM?",
+    "What's the difference between z-score and min-max scaling?",
+    "My features have very different units — how do I normalize them?"
+   ]
+  },
+  "prep.tsne": {
+   "en_name": "t-SNE Dimensionality Visualization",
+   "en_description": "Nonlinearly embeds high-dimensional data into 2D or 3D for visual inspection of clusters, intended only for exploration not downstream modeling.",
+   "en_keywords": [
+    "t-sne",
+    "tsne",
+    "nonlinear dimensionality reduction",
+    "visualization",
+    "embedding",
+    "cluster visualization",
+    "manifold learning",
+    "perplexity"
+   ],
+   "zh_examples": [
+    "高维数据能不能画个二维图看看有没有分群？",
+    "t-SNE的 perplexity 参数怎么选？",
+    "想可视化一下样本能不能分成几团"
+   ],
+   "en_examples": [
+    "How can I visualize whether my high-dimensional samples form clusters?",
+    "What perplexity should I use for a t-SNE plot?",
+    "Is t-SNE suitable as input features for my model?"
+   ]
+  },
+  "prep.pca": {
+   "en_name": "Principal Component Analysis",
+   "en_description": "Reduces many correlated variables into a few uncorrelated principal components with scree and loading plots for structure discovery.",
+   "en_keywords": [
+    "pca",
+    "principal component analysis",
+    "dimensionality reduction",
+    "scree plot",
+    "loading plot",
+    "eigenvalues",
+    "variance explained",
+    "feature compression"
+   ],
+   "zh_examples": [
+    "变量太多还高度相关，能不能压成几个主成分？",
+    "PCA保留几个成分比较合适？",
+    "怎么解释主成分载荷？"
+   ],
+   "en_examples": [
+    "How many principal components should I keep?",
+    "Can PCA reduce my highly correlated features?",
+    "How do I interpret the loading plot of a PCA?"
+   ]
+  },
+  "prep.spectral": {
+   "en_name": "Time Series Spectral Features",
+   "en_description": "Extracts frequency-domain features such as dominant FFT frequency, spectral entropy and energy shares from long time series to describe periodic structure.",
+   "en_keywords": [
+    "fft",
+    "spectral features",
+    "dominant frequency",
+    "spectral entropy",
+    "power spectrum",
+    "frequency domain",
+    "periodicity",
+    "waveform"
+   ],
+   "zh_examples": [
+    "长时间序列里有哪些周期成分，怎么提取？",
+    "想用频域特征描述信号的周期结构",
+    "谱熵和主频这些特征怎么算？"
+   ],
+   "en_examples": [
+    "How do I extract dominant periodic components from a long time series?",
+    "What frequency-domain features can describe this signal?",
+    "Can spectral features improve my time-series forecasting?"
+   ]
+  },
+  "describe.frequency": {
+   "en_name": "Frequency Distribution Analysis",
+   "en_description": "Counts and proportions of each category in a categorical variable, useful for an initial look at how a nominal or ordinal variable is distributed.",
+   "en_keywords": [
+    "frequency distribution",
+    "counts and percentages",
+    "categorical proportions",
+    "value counts",
+    "mode",
+    "bar chart data",
+    "category share"
+   ],
+   "zh_examples": [
+    "这个问卷里每个选项分别有多少人选？占比是多少？",
+    "帮我看看性别、学历这些分类字段的分布情况",
+    "想知道各品牌销量的占比排名"
+   ],
+   "en_examples": [
+    "How many respondents picked each option in this question?",
+    "What is the proportion of each category in this variable?",
+    "Give me a count and percentage breakdown of the categorical columns."
+   ]
+  },
+  "describe.stats": {
+   "en_name": "Descriptive Summary Statistics",
+   "en_description": "Summarizes central tendency, dispersion and shape—mean, median, standard deviation, quantiles, skewness and kurtosis—for a first look at numeric data.",
+   "en_keywords": [
+    "descriptive statistics",
+    "mean median mode",
+    "standard deviation",
+    "quantiles percentiles",
+    "skewness kurtosis",
+    "summary statistics",
+    "spread central tendency"
+   ],
+   "zh_examples": [
+    "新拿到一批数据，先帮我做个整体的统计摘要吧",
+    "这些数值变量的均值、方差、分位数是多少？",
+    "数据的分布偏不偏、有没有长尾？"
+   ],
+   "en_examples": [
+    "Give me a quick summary of the numeric variables in this dataset.",
+    "What are the mean, standard deviation and quartiles of these columns?",
+    "Is the distribution of my data skewed or heavy-tailed?"
+   ]
+  },
+  "describe.crosstab": {
+   "en_name": "Cross-Tabulation Analysis",
+   "en_description": "Builds a two-way table of joint frequencies and row/column percentages for two categorical variables, revealing their association and interaction pattern.",
+   "en_keywords": [
+    "cross tabulation",
+    "contingency table",
+    "two-way table",
+    "joint frequency",
+    "row column percentage",
+    "association between categories",
+    "chi-square table"
+   ],
+   "zh_examples": [
+    "性别和是否购买之间有没有关系？做个交叉表看看",
+    "两个分类变量放一起，我想看交叉分布和占比",
+    "帮我按行、按列算一下百分比"
+   ],
+   "en_examples": [
+    "Is there an association between gender and purchase behavior?",
+    "Show me a two-way table of these two categorical variables with row and column percentages.",
+    "How are these two factors distributed when crossed together?"
+   ]
+  },
+  "describe.aggregate": {
+   "en_name": "Grouped Aggregation Summary",
+   "en_description": "Splits data by one or more grouping variables and computes counts, sums, means or other aggregates per group, ideal for group-level comparison.",
+   "en_keywords": [
+    "group by aggregation",
+    "split apply combine",
+    "group summary",
+    "mean by group",
+    "sum by group",
+    "pivot aggregation",
+    "grouped statistics"
+   ],
+   "zh_examples": [
+    "按地区分组算一下各组的平均销售额",
+    "帮我按部门汇总人数和总工时",
+    "每个月的销量总和是多少？"
+   ],
+   "en_examples": [
+    "What is the average sales revenue for each region?",
+    "Aggregate the data by department and show counts and totals.",
+    "Summarize totals by month so I can compare groups."
+   ]
+  },
+  "describe.explore": {
+   "en_name": "Exploratory Data Overview",
+   "en_description": "One-pass scan of a dataset reporting missing values, data types, unique counts, duplicates and distribution summaries to spot data quality issues early.",
+   "en_keywords": [
+    "exploratory data analysis",
+    "EDA",
+    "data quality check",
+    "missing values",
+    "unique values",
+    "data types",
+    "duplicates overview",
+    "profiling"
+   ],
+   "zh_examples": [
+    "先帮我摸底一下这份数据，有没有缺失和重复",
+    "这些列的类型对不对？唯一值有多少？",
+    "做个数据体检，看看哪里有问题"
+   ],
+   "en_examples": [
+    "Do a quick health check of this dataset before analysis.",
+    "Which columns have missing values or unexpected data types?",
+    "How many unique values and duplicates does each column have?"
+   ]
+  },
+  "describe.power": {
+   "en_name": "Power and Sample Size Calculation",
+   "en_description": "Determines required sample size or statistical power before an experiment, given effect size, alpha and desired power, to plan adequately powered studies.",
+   "en_keywords": [
+    "power analysis",
+    "sample size determination",
+    "statistical power",
+    "effect size",
+    "alpha significance level",
+    "minimum sample size",
+    "a priori power",
+    "test sensitivity"
+   ],
+   "zh_examples": [
+    "实验还没开始，我得知道至少要招多少人",
+    "做这个检验需要多大的样本量才够？",
+    "效应量定了，功效要0.8的话要收多少数据？"
+   ],
+   "en_examples": [
+    "How many participants do I need before running this experiment?",
+    "What sample size gives my test 80% power at alpha 0.05?",
+    "Can you compute the required sample size from this expected effect size?"
+   ]
+  },
+  "test.ttest": {
+   "en_name": "T-Test Mean Comparisons",
+   "en_description": "Compares means between two groups using one-sample, independent, or paired t-tests, suitable when data are approximately normal and variances are roughly equal.",
+   "en_keywords": [
+    "t-test",
+    "independent samples t-test",
+    "paired t-test",
+    "one-sample t-test",
+    "mean comparison",
+    "hypothesis testing",
+    "effect size",
+    "cohen's d"
+   ],
+   "zh_examples": [
+    "两组人的平均成绩有没有显著差别？",
+    "配对前后测量的数据能不能用配对检验？",
+    "样本量小而且大概正态，该用什么方法比两组均值？"
+   ],
+   "en_examples": [
+    "Is there a significant difference in means between these two groups?",
+    "Which test should I use to compare before-and-after measurements on the same subjects?",
+    "How do I compare two group means when the sample is small and roughly normal?"
+   ]
+  },
+  "test.anova": {
+   "en_name": "Analysis of Variance",
+   "en_description": "Tests whether three or more group means differ, or adjusts for a covariate, applicable in designs with one factor and optionally one continuous covariate.",
+   "en_keywords": [
+    "anova",
+    "one-way anova",
+    "ancova",
+    "analysis of variance",
+    "f-test",
+    "group comparison",
+    "covariate",
+    "factor effect"
+   ],
+   "zh_examples": [
+    "三组以上的平均值差异该怎么检验？",
+    "想控制年龄的影响再比较组间差异有什么办法？",
+    "多个组别之间有没有显著差异，用什么分析？"
+   ],
+   "en_examples": [
+    "How do I test whether means differ across three or more groups?",
+    "What method lets me compare group differences while controlling for a covariate?",
+    "Is there a significant difference among these multiple groups?"
+   ]
+  },
+  "test.wilcoxon": {
+   "en_name": "Wilcoxon Signed-Rank Test",
+   "en_description": "Nonparametric alternative for paired or repeated-measure data when differences are skewed or not normally distributed, comparing median difference against zero.",
+   "en_keywords": [
+    "wilcoxon signed-rank",
+    "signed rank test",
+    "paired nonparametric",
+    "repeated measures",
+    "median difference",
+    "non-normal data",
+    "ordinal paired"
+   ],
+   "zh_examples": [
+    "配对数据的差值明显偏态，还能用什么检验？",
+    "前后两次测量不满足正态性应该选哪种方法？",
+    "两组配对样本的中位数有没有差异怎么判断？"
+   ],
+   "en_examples": [
+    "My paired differences are skewed; what test can I use instead?",
+    "What should I use for before-after data that fails the normality check?",
+    "How can I test whether the median difference of paired samples differs from zero?"
+   ]
+  },
+  "test.mannwhitney": {
+   "en_name": "Mann-Whitney U Test",
+   "en_description": "Nonparametric test comparing two independent groups when normality or equal-variance assumptions fail, assessing whether one group tends to have larger values.",
+   "en_keywords": [
+    "mann-whitney u",
+    "wilcoxon rank-sum",
+    "rank sum test",
+    "two independent samples",
+    "nonparametric",
+    "median comparison",
+    "unbalanced variance"
+   ],
+   "zh_examples": [
+    "两组独立样本不满足正态分布，用什么方法比较？",
+    "方差不齐的时候两组差异怎么检验？",
+    "数据是等级或者偏态的，两组该选什么检验？"
+   ],
+   "en_examples": [
+    "How do I compare two independent groups when the data are not normal?",
+    "What test should I use if the two groups have unequal variances?",
+    "Can I compare two groups with ordinal or heavily skewed data?"
+   ]
+  },
+  "test.kruskal": {
+   "en_name": "Kruskal-Wallis H Test",
+   "en_description": "Nonparametric test for differences among three or more independent groups when ANOVA assumptions are violated, based on rank comparisons across groups.",
+   "en_keywords": [
+    "kruskal-wallis",
+    "h test",
+    "multiple independent groups",
+    "nonparametric anova",
+    "rank-based",
+    "group difference",
+    "post hoc"
+   ],
+   "zh_examples": [
+    "多组数据不满足方差分析条件怎么办？",
+    "三组以上用什么非参数方法看差异？",
+    "组间差异显著之后还要怎么做两两比较？"
+   ],
+   "en_examples": [
+    "What can I use instead of ANOVA when its assumptions are violated?",
+    "How do I check for differences among three or more independent groups nonparametrically?",
+    "What should I do after finding a significant difference across multiple groups?"
+   ]
+  },
+  "test.friedman": {
+   "en_name": "Friedman Test",
+   "en_description": "Nonparametric test for repeated-measure or randomized block designs with multiple conditions on the same subjects, when normality assumptions do not hold.",
+   "en_keywords": [
+    "friedman test",
+    "repeated measures nonparametric",
+    "randomized block",
+    "multiple conditions",
+    "rank within subjects",
+    "within-subject comparison",
+    "kruskal-wallis repeated"
+   ],
+   "zh_examples": [
+    "同一批被试在多个条件下的表现怎么比较？",
+    "重复测量数据不服从正态分布该用什么方法？",
+    "三个处理条件之间有没有显著差异怎么检验？"
+   ],
+   "en_examples": [
+    "How do I compare the same subjects across multiple conditions nonparametrically?",
+    "What test fits repeated-measures data that are not normally distributed?",
+    "Is there a way to test differences among three treatment conditions within subjects?"
+   ]
+  },
+  "test.cochran": {
+   "en_name": "Cochran's Q Test",
+   "en_description": "Nonparametric test for differences in binary responses measured repeatedly on the same subjects across three or more conditions or time points.",
+   "en_keywords": [
+    "cochran's q",
+    "binary response",
+    "repeated measures",
+    "matched pairs",
+    "nonparametric",
+    "mcnemar extension",
+    "paired nominal data"
+   ],
+   "zh_examples": [
+    "同一批病人在三个时间点的用药有效率不一样，怎么检验这种差异？",
+    "我做的是同一批被试三种条件下的是/否回答，能用什么方法看整体有没有差异？",
+    "重复测量的二分类结果，三个组以上怎么比较？"
+   ],
+   "en_examples": [
+    "How do I test whether binary outcomes differ across three or more repeated conditions on the same subjects?",
+    "I have yes/no responses from the same patients at four time points — which test should I use?",
+    "What's the appropriate nonparametric test for matched binary data with more than two related groups?"
+   ]
+  },
+  "test.chi2": {
+   "en_name": "Chi-Square Test of Independence",
+   "en_description": "Tests whether two categorical variables are independent using contingency tables; suitable for association testing and group difference comparisons.",
+   "en_keywords": [
+    "chi-square test",
+    "chi square",
+    "contingency table",
+    "independence test",
+    "categorical association",
+    "cross tabulation",
+    "pearson chi-square",
+    "association"
+   ],
+   "zh_examples": [
+    "性别和是否购买之间有没有关系，怎么做检验？",
+    "列联表里两个分类变量独立吗，用什么方法？",
+    "想知道不同学历的人在某项选择上比例是否不同，怎么检验？"
+   ],
+   "en_examples": [
+    "Is there a significant association between gender and product purchase in this contingency table?",
+    "How do I test whether two categorical variables are independent?",
+    "Which test should I use to compare proportions across groups for categorical data?"
+   ]
+  },
+  "test.gof": {
+   "en_name": "Chi-Square Goodness-of-Fit Test",
+   "en_description": "Checks whether observed frequencies match an expected theoretical distribution or specified proportions; used for distribution fit assessment.",
+   "en_keywords": [
+    "goodness of fit",
+    "chi square gof",
+    "expected frequencies",
+    "theoretical distribution",
+    "distribution test",
+    "proportion test",
+    "observed vs expected",
+    "uniform distribution"
+   ],
+   "zh_examples": [
+    "我想看观察到的各组人数符不符合 1:1:1 的预期比例，怎么做？",
+    "检验数据是不是服从某个理论分布用什么方法？",
+    "实际频数和期望频数差多少才算显著，怎么算？"
+   ],
+   "en_examples": [
+    "How can I check whether observed category counts match expected proportions?",
+    "Which test compares observed frequencies against a theoretical distribution?",
+    "Is my sample distributed uniformly across the four groups?"
+   ]
+  },
+  "test.fisher": {
+   "en_name": "Fisher's Exact Test",
+   "en_description": "Exact test for association in 2×2 contingency tables when sample sizes are small and expected cell counts fall below five.",
+   "en_keywords": [
+    "fisher's exact test",
+    "fisher exact",
+    "small sample",
+    "2x2 table",
+    "exact p-value",
+    "expected count",
+    "small expected frequency",
+    "independence test"
+   ],
+   "zh_examples": [
+    "我的四格表里有格子期望频数小于5，能用卡方吗？",
+    "样本量很小的 2×2 表怎么检验两个变量有没有关系？",
+    "两个比例比较但总样本只有二十几例，用什么检验？"
+   ],
+   "en_examples": [
+    "Some expected cell counts are below 5 — should I use an exact test instead of chi-square?",
+    "What's the right test for a 2×2 table with very small sample size?",
+    "How do I compare two proportions when the total sample is tiny?"
+   ]
+  },
+  "model.correlation": {
+   "en_name": "Correlation Analysis",
+   "en_description": "Measures strength and direction of linear association among continuous variables using Pearson, Spearman, Kendall or partial correlation.",
+   "en_keywords": [
+    "correlation",
+    "pearson correlation",
+    "spearman correlation",
+    "kendall tau",
+    "partial correlation",
+    "association",
+    "rank correlation",
+    "linear relationship"
+   ],
+   "zh_examples": [
+    "我想看看这些变量之间哪些有相关关系，用什么方法？",
+    "数据不满足正态分布，相关系数怎么选？",
+    "控制了年龄之后，两个变量还相关吗，怎么算？"
+   ],
+   "en_examples": [
+    "Which correlation coefficient should I use if the data aren't normally distributed?",
+    "How do I check for linear relationships among my continuous variables?",
+    "Can I compute the correlation between two variables while controlling for a third?"
+   ]
+  },
+  "model.canonical": {
+   "en_name": "Canonical Correlation Analysis",
+   "en_description": "Quantifies overall correlation between two sets of variables, identifying linear combinations that maximize their shared association.",
+   "en_keywords": [
+    "canonical correlation",
+    "cca",
+    "two sets of variables",
+    "multivariate correlation",
+    "redundancy analysis",
+    "canonical variates",
+    "dimension reduction",
+    "relationship between variable groups"
+   ],
+   "zh_examples": [
+    "两组变量整体上关系强不强，怎么分析？",
+    "我有多个自变量和多个因变量，怎么找它们之间的相关模式？",
+    "想看生活方式指标和健康指标两组之间怎么关联，用什么方法？"
+   ],
+   "en_examples": [
+    "How can I measure the overall relationship between two groups of variables?",
+    "I have several predictors and several outcomes — what method shows their joint correlation structure?",
+    "Which technique finds linear combinations of two variable sets that correlate most?"
+   ]
+  },
+  "model.vif": {
+   "en_name": "VIF Multicollinearity Diagnosis",
+   "en_description": "Checks multicollinearity among predictors before regression using variance inflation factors and tolerance, flagging severely correlated independent variables.",
+   "en_keywords": [
+    "variance inflation factor",
+    "vif",
+    "tolerance",
+    "multicollinearity",
+    "collinearity diagnostics",
+    "correlation among predictors",
+    "condition index",
+    "regression diagnostics"
+   ],
+   "zh_examples": [
+    "回归之前怎么判断自变量之间有没有严重共线性？",
+    "变量之间相关性很高，会不会影响回归结果，该看什么指标？",
+    "计算出来的方差膨胀因子很大，要怎么处理？"
+   ],
+   "en_examples": [
+    "How do I check whether my predictors are too collinear before running a regression?",
+    "Which diagnostic tells me if independent variables are inflating coefficient variance?",
+    "What VIF values are considered a problem and what should I do about them?"
+   ]
+  },
+  "model.linear": {
+   "en_name": "Linear Regression Modeling",
+   "en_description": "Quantifies direction and magnitude of predictor effects on a continuous outcome with coefficients, standard errors, t-values and R², for explanation and prediction.",
+   "en_keywords": [
+    "linear regression",
+    "ordinary least squares",
+    "ols",
+    "multiple regression",
+    "coefficients",
+    "r-squared",
+    "predictor effects",
+    "continuous outcome"
+   ],
+   "zh_examples": [
+    "因变量是连续的，想看看各个因素影响有多大该用什么方法？",
+    "怎么用自变量去预测一个连续的数值，还要能解释每个变量的贡献？",
+    "回归结果里的系数、t 值和 R² 分别怎么看？"
+   ],
+   "en_examples": [
+    "I have a continuous outcome and want to estimate how each factor affects it. What method should I use?",
+    "How can I build a model that predicts a numeric value and explains each predictor's contribution?",
+    "How do I interpret the coefficients and R-squared from my regression output?"
+   ]
+  },
+  "model.ridge": {
+   "en_name": "Ridge Regression",
+   "en_description": "Stabilizes regression coefficients under strong predictor collinearity or few samples relative to variables by applying L2 penalty regularization.",
+   "en_keywords": [
+    "ridge regression",
+    "l2 regularization",
+    "penalized regression",
+    "coefficient shrinkage",
+    "coefficient path",
+    "ill-conditioned predictors",
+    "high collinearity",
+    "alpha tuning"
+   ],
+   "zh_examples": [
+    "自变量之间高度相关，普通回归系数变得很不稳定怎么办？",
+    "样本量比变量还少，回归跑不起来有什么办法？",
+    "正则化参数应该怎么选？"
+   ],
+   "en_examples": [
+    "My predictors are highly correlated and the coefficients are unstable — what can I do?",
+    "I have fewer observations than variables; how can I still fit a stable regression?",
+    "How should I choose the penalty strength for a shrinkage model?"
+   ]
+  },
+  "model.lasso": {
+   "en_name": "Lasso Regression",
+   "en_description": "Fits a regression that shrinks useless coefficients to zero with L1 penalty, performing automatic feature selection among many predictors.",
+   "en_keywords": [
+    "lasso",
+    "l1 regularization",
+    "feature selection",
+    "variable selection",
+    "sparse regression",
+    "shrinkage",
+    "coefficient zeroing",
+    "high-dimensional predictors"
+   ],
+   "zh_examples": [
+    "自变量特别多，想让模型自动筛掉没用的变量该怎么做？",
+    "怎么做变量选择，同时还能得到预测模型？",
+    "哪些特征真正对结果有影响，怎么自动识别？"
+   ],
+   "en_examples": [
+    "I have too many features and want the model to drop the irrelevant ones automatically. What should I use?",
+    "Is there a method that does variable selection and prediction at the same time?",
+    "How can I identify which predictors actually matter in a high-dimensional dataset?"
+   ]
+  },
+  "model.elasticnet": {
+   "en_name": "Elastic Net Regression",
+   "en_description": "Combines L1 and L2 penalties to handle grouped or strongly correlated predictors where Lasso keeps only one and ridge keeps all.",
+   "en_keywords": [
+    "elastic net",
+    "l1 l2 penalty",
+    "mixed regularization",
+    "grouped predictors",
+    "correlated features",
+    "sparse regression",
+    "feature selection",
+    "shrinkage"
+   ],
+   "zh_examples": [
+    "有一组变量彼此高度相关，怎么让它们一起进模型或者一起被删掉？",
+    "Lasso 在相关变量里只留一个，这种情况用什么替代？",
+    "想要既能筛变量又不丢掉成组特征怎么办？"
+   ],
+   "en_examples": [
+    "My predictors fall into correlated groups; how do I keep or drop them together?",
+    "Lasso only keeps one of a set of correlated variables — what's the alternative?",
+    "I need both sparsity and stability with highly correlated features. Which method fits?"
+   ]
+  },
+  "model.logistic": {
+   "en_name": "Logistic Regression Modeling",
+   "en_description": "Models binary, ordinal or multinomial categorical outcomes, estimating odds ratios to explain factor effects on classification probability.",
+   "en_keywords": [
+    "logistic regression",
+    "binary classification",
+    "multinomial logit",
+    "ordinal logit",
+    "odds ratio",
+    "categorical outcome",
+    "classification probability",
+    "logit link"
+   ],
+   "zh_examples": [
+    "结果只有是和否两类，想分析哪些因素有影响该用什么？",
+    "二分类问题里优势比是什么意思，怎么解释？",
+    "因变量是有序的等级（比如低中高），能用回归分析吗？"
+   ],
+   "en_examples": [
+    "My outcome is yes/no and I want to know which factors affect the odds — what model fits?",
+    "How do I interpret odds ratios from a binary classification model?",
+    "Can I use a regression when my outcome is an ordered category like low, medium, high?"
+   ]
+  },
+  "model.probit": {
+   "en_name": "Probit Binary Regression",
+   "en_description": "Models binary outcomes assuming a latent normally distributed variable, useful when normal-theory assumptions underlie the classification problem.",
+   "en_keywords": [
+    "probit regression",
+    "binary outcome",
+    "normal latent variable",
+    "link function",
+    "logit vs probit",
+    "binary classification",
+    "standard normal cdf",
+    "censored variable"
+   ],
+   "zh_examples": [
+    "我的因变量只有0和1，但我觉得背后有个正态潜变量，该用什么模型？",
+    "二分类结果用 probit 和 logit 有什么区别，什么时候选前者？",
+    "研究某种行为是否发生，假设存在潜在连续倾向，怎么做回归？"
+   ],
+   "en_examples": [
+    "I have a 0/1 dependent variable and believe there's a continuous latent trait behind it—what model should I use?",
+    "When is probit preferable to logit for modeling binary choices?",
+    "How do I estimate a binary response model assuming a normally distributed latent variable?"
+   ]
+  },
+  "model.robust": {
+   "en_name": "Robustness Check and SE",
+   "en_description": "Checks whether regression conclusions hold under heteroskedasticity, outliers, and alternative specifications using robust standard errors.",
+   "en_keywords": [
+    "robust standard errors",
+    "heteroskedasticity",
+    "outliers",
+    "sensitivity analysis",
+    "specification check",
+    "white standard errors",
+    "model stability",
+    "influence points"
+   ],
+   "zh_examples": [
+    "结果里好像有异方差，怎么处理才靠谱？",
+    "怎么检验我的回归结论是不是被几个极端值带偏了？",
+    "审稿人让我做稳健性检验，一般要做哪些？"
+   ],
+   "en_examples": [
+    "How do I fix heteroskedasticity in my regression results?",
+    "My coefficients might be driven by a few outliers—how can I check that?",
+    "What robustness checks should I run to convince reviewers my findings are stable?"
+   ]
+  },
+  "model.mediation": {
+   "en_name": "Mediation Effect Analysis",
+   "en_description": "Tests whether an effect of A on B operates through an intermediate variable M, using Baron-Kenny steps or bootstrap indirect effects.",
+   "en_keywords": [
+    "mediation",
+    "indirect effect",
+    "mediating variable",
+    "baron-kenny",
+    "bootstrapping",
+    "path analysis",
+    "mechanism",
+    "total effect decomposition"
+   ],
+   "zh_examples": [
+    "我想验证自变量是通过某个中间变量影响因变量的，怎么做？",
+    "中介效应的显著性要用什么方法检验比较合适？",
+    "间接效应的置信区间该怎么算？"
+   ],
+   "en_examples": [
+    "How can I show that my independent variable works through an intermediate variable?",
+    "What's the best way to test whether an indirect effect is significant?",
+    "Do I need bootstrapping to test a mediation hypothesis?"
+   ]
+  },
+  "model.moderation": {
+   "en_name": "Moderation Interaction Analysis",
+   "en_description": "Examines when an effect becomes stronger or weaker via interaction terms and simple slopes, clarifying boundary conditions of a relationship.",
+   "en_keywords": [
+    "moderation",
+    "interaction effect",
+    "simple slope",
+    "interaction term",
+    "boundary condition",
+    "conditional effect",
+    "subgroup difference",
+    "effect heterogeneity"
+   ],
+   "zh_examples": [
+    "怎么判断一个变量会不会改变另一个变量的影响大小？",
+    "加了交互项之后系数怎么解读？",
+    "想看在不同条件下主效应是否一样强，该怎么做？"
+   ],
+   "en_examples": [
+    "How do I test whether the effect of X on Y depends on another variable?",
+    "How should I interpret an interaction term in my regression?",
+    "I want to know if my effect is stronger in one group than another—what approach fits?"
+   ]
+  },
+  "model.chained": {
+   "en_name": "Serial Chained Mediation",
+   "en_description": "Decomposes indirect effects when influence passes through two or more mediators in sequence, estimating each link's contribution.",
+   "en_keywords": [
+    "serial mediation",
+    "chain mediation",
+    "sequential indirect effect",
+    "multiple mediators",
+    "path decomposition",
+    "chain mechanism",
+    "cascading effect",
+    "indirect path"
+   ],
+   "zh_examples": [
+    "影响要经过两个中间变量先后传递，这种路径怎么检验？",
+    "串行中介和并行中介有什么区别，怎么选？",
+    "怎么把总效应分解成几条链条上的间接效应？"
+   ],
+   "en_examples": [
+    "My effect passes through two mediators in sequence—how do I test that pathway?",
+    "What's the difference between serial and parallel multiple mediation?",
+    "How do I decompose an indirect effect across a chain of variables?"
+   ]
+  },
+  "model.gamma": {
+   "en_name": "Gamma GLM Regression",
+   "en_description": "Fits positive continuous outcomes like durations or costs whose variance grows with the mean, using a gamma distribution and log link.",
+   "en_keywords": [
+    "gamma regression",
+    "generalized linear model",
+    "positive continuous outcome",
+    "log link",
+    "variance proportional to mean",
+    "cost modeling",
+    "duration data",
+    "glm gamma"
+   ],
+   "zh_examples": [
+    "我的因变量是花费金额，都是正数而且方差越来越大，用什么模型？",
+    "保险赔付金额或等待时长这种数据怎么建模？",
+    "gamma 回归和对数线性回归有什么差别？"
+   ],
+   "en_examples": [
+    "My dependent variable is positive cost data with variance increasing with the mean—what model fits?",
+    "How do I model claim amounts or waiting times that are always positive?",
+    "When should I choose a gamma GLM over a log-transformed linear model?"
+   ]
+  },
+  "model.poisson": {
+   "en_name": "Poisson Regression",
+   "en_description": "Models count outcomes with log link, suitable when the dependent variable is a nonnegative count such as occurrences, cases, or event totals.",
+   "en_keywords": [
+    "poisson regression",
+    "count data",
+    "log link",
+    "incidence rate ratio",
+    "event count",
+    "generalized linear model",
+    "count response",
+    "overdispersion"
+   ],
+   "zh_examples": [
+    "我的因变量是每个月发生的次数，应该用什么模型？",
+    "事件计数数据怎么分析影响因素？",
+    "数据里有很多零计数，有什么回归方法？"
+   ],
+   "en_examples": [
+    "My dependent variable is a count of events per month — what model should I use?",
+    "How can I analyze factors affecting the number of occurrences when the outcome is a count?",
+    "What regression works when my outcome is the number of cases recorded in each group?"
+   ]
+  },
+  "model.gee": {
+   "en_name": "GEE Population-Averaged Model",
+   "en_description": "Handles correlated observations within clusters, estimating population-average effects when only overall average relationships are of interest.",
+   "en_keywords": [
+    "generalized estimating equations",
+    "GEE",
+    "population averaged",
+    "clustered data",
+    "correlated observations",
+    "working correlation",
+    "repeated measures",
+    "population level effects"
+   ],
+   "zh_examples": [
+    "数据是按班级/医院分组的，想看总体平均效应用什么方法？",
+    "同一个病人反复测量好几次，怎么建模？",
+    "组内观测有相关性，普通回归不适用怎么办？"
+   ],
+   "en_examples": [
+    "Data are clustered by school and I only care about population-average effects — what should I use?",
+    "Patients were measured repeatedly over time; how do I model this properly?",
+    "Observations within groups are correlated, so standard regression gives biased errors — what's the fix?"
+   ]
+  },
+  "model.glmm": {
+   "en_name": "Generalized Linear Mixed Model",
+   "en_description": "Extends GLMs with random effects for clustered or multilevel data with non-normal responses, capturing both fixed and group-specific variation.",
+   "en_keywords": [
+    "GLMM",
+    "generalized linear mixed model",
+    "random effects",
+    "multilevel model",
+    "logistic mixed model",
+    "poisson mixed model",
+    "hierarchical model",
+    "clustered data"
+   ],
+   "zh_examples": [
+    "数据分层嵌套，因变量还是二分类/计数，用什么模型？",
+    "组间差异很大，想加入随机效应怎么建？",
+    "多层数据的非正态响应该怎么分析？"
+   ],
+   "en_examples": [
+    "My data are nested and the outcome is binary — which model fits?",
+    "Groups differ a lot and I want to add random effects; how?",
+    "How do I analyze a non-normal outcome in multilevel clustered data?"
+   ]
+  },
+  "model.mixed": {
+   "en_name": "Mixed Effects Model",
+   "en_description": "Fits linear or nonlinear models with random intercepts and slopes for nested or repeated-measures designs capturing subject-specific variation.",
+   "en_keywords": [
+    "mixed effects model",
+    "linear mixed model",
+    "LMM",
+    "random intercept",
+    "random slope",
+    "repeated measures",
+    "nested data",
+    "multilevel modeling"
+   ],
+   "zh_examples": [
+    "重复测量数据，个体内多次观测，怎么建模？",
+    "有随机截距和随机斜率的模型怎么做？",
+    "嵌套结构的数据用什么回归合适？"
+   ],
+   "en_examples": [
+    "I have repeated measures per subject — what model should I fit?",
+    "How do I include both random intercepts and random slopes?",
+    "What regression handles data nested within groups over time?"
+   ]
+  },
+  "ml.kmeans": {
+   "en_name": "K-Means Clustering",
+   "en_description": "Partitions samples into k spherical clusters based on numeric features, useful for customer segmentation and discovering group structure.",
+   "en_keywords": [
+    "k-means",
+    "clustering",
+    "segmentation",
+    "elbow method",
+    "silhouette score",
+    "centroid",
+    "unsupervised learning",
+    "grouping"
+   ],
+   "zh_examples": [
+    "想把客户按消费特征分成几组，有什么办法？",
+    "怎么自动把样本聚成5类？",
+    "怎么确定聚成几类比较合适？"
+   ],
+   "en_examples": [
+    "How can I group customers into segments based on their behavior?",
+    "What method splits my samples into 5 clusters automatically?",
+    "How do I decide the right number of clusters for my data?"
+   ]
+  },
+  "ml.hierarchical": {
+   "en_name": "Hierarchical Clustering",
+   "en_description": "Builds a dendrogram of nested clusters without pre-specifying group count, revealing hierarchical structure via various linkage criteria.",
+   "en_keywords": [
+    "hierarchical clustering",
+    "dendrogram",
+    "agglomerative clustering",
+    "linkage",
+    "ward",
+    "single linkage",
+    "complete linkage",
+    "tree structure"
+   ],
+   "zh_examples": [
+    "不知道该分几类，想看聚类的层次结构怎么做？",
+    "用树状图展示样本分组有什么方法？",
+    "怎么比较不同连接方式的聚类结果？"
+   ],
+   "en_examples": [
+    "I don't know how many clusters to choose — how can I see the hierarchical structure?",
+    "What method gives a dendrogram of my samples?",
+    "How do I compare clustering results from different linkage rules?"
+   ]
+  },
+  "ml.dbscan": {
+   "en_name": "DBSCAN Clustering",
+   "en_description": "Density-based clustering that groups arbitrary-shaped clusters and labels noise points, suitable for customer segmentation and structure discovery with irregular clusters.",
+   "en_keywords": [
+    "dbscan",
+    "density-based clustering",
+    "spatial clustering of applications with noise",
+    "noise detection",
+    "density clustering",
+    "core points",
+    "epsilon neighborhood",
+    "min samples"
+   ],
+   "zh_examples": [
+    "数据里的群形状很不规则，还有不少离群点，怎么分群比较好？",
+    "能不能自动把噪声点剔掉再做客户分群？",
+    "密度聚类的参数 eps 和 min_samples 怎么选？"
+   ],
+   "en_examples": [
+    "How do I cluster data with irregularly shaped groups and outliers?",
+    "Which method finds clusters of arbitrary shape while marking noise points?",
+    "What's the right way to set neighborhood size for density-based clustering?"
+   ]
+  },
+  "ml.fcm": {
+   "en_name": "Fuzzy C-Means Clustering",
+   "en_description": "Soft clustering assigning membership degrees to each point for all clusters, ideal when boundary samples should not be forced into a single hard class.",
+   "en_keywords": [
+    "fuzzy c-means",
+    "fcm",
+    "fuzzy clustering",
+    "membership degree",
+    "membership matrix",
+    "partition coefficient",
+    "soft clustering",
+    "fuzzifier"
+   ],
+   "zh_examples": [
+    "有些客户感觉介于两个群体之间，能不能给出他属于各类的程度？",
+    "模糊聚类的隶属度矩阵和划分系数是什么意思？",
+    "不想把边界样本硬分到某一类，有什么办法？"
+   ],
+   "en_examples": [
+    "How can I get the degree to which each customer belongs to each segment?",
+    "Which clustering gives membership scores instead of hard labels?",
+    "How do I evaluate a fuzzy partition of my data?"
+   ]
+  },
+  "ml.random_forest": {
+   "en_name": "Random Forest",
+   "en_description": "Ensemble of decision trees providing a stable, low-tuning baseline predictor with feature importance and out-of-bag error for tabular data.",
+   "en_keywords": [
+    "random forest",
+    "ensemble learning",
+    "bagging",
+    "decision tree",
+    "feature importance",
+    "out-of-bag error",
+    "oob",
+    "classification"
+   ],
+   "zh_examples": [
+    "表格数据想先做个比较稳的基线预测模型，用什么好？",
+    "随机森林的特征重要性怎么看？",
+    "袋外误差是什么，能当测试集用吗？"
+   ],
+   "en_examples": [
+    "What's a robust baseline model for tabular prediction with little tuning?",
+    "How do I get feature importance from an ensemble of trees?",
+    "Can out-of-bag error replace a validation set?"
+   ]
+  },
+  "ml.xgboost": {
+   "en_name": "XGBoost Model",
+   "en_description": "Gradient boosting framework maximizing predictive accuracy through iterative tree boosting with early stopping, suited for competitions and tuned modeling.",
+   "en_keywords": [
+    "xgboost",
+    "gradient boosting",
+    "gbdt",
+    "early stopping",
+    "boosting trees",
+    "hyperparameter tuning",
+    "prediction accuracy",
+    "lightgbm alternative"
+   ],
+   "zh_examples": [
+    "想把预测精度做上去，愿意花时间调参，用什么模型？",
+    "XGBoost 里的早停怎么设置才合理？",
+    "梯度提升树的参数怎么调比较有效？"
+   ],
+   "en_examples": [
+    "Which model gives top accuracy if I can spend time tuning?",
+    "How does early stopping work in gradient boosting?",
+    "What hyperparameters matter most for boosted tree models?"
+   ]
+  },
+  "ml.lightgbm": {
+   "en_name": "LightGBM Model",
+   "en_description": "Histogram-based gradient boosting that trains fast on large-scale, high-dimensional data, ideal when training speed is the bottleneck.",
+   "en_keywords": [
+    "lightgbm",
+    "histogram-based boosting",
+    "gradient boosting",
+    "large scale training",
+    "high dimensional data",
+    "fast training",
+    "leaf-wise growth",
+    "feature importance"
+   ],
+   "zh_examples": [
+    "数据量很大、特征也多，训练太慢了怎么办？",
+    "有什么梯度提升方法训练速度快一些？",
+    "LightGBM 和 XGBoost 该选哪个？"
+   ],
+   "en_examples": [
+    "Training is too slow on my large high-dimensional dataset, what can help?",
+    "Which boosted tree algorithm scales best to big data?",
+    "How to speed up gradient boosting on millions of rows?"
+   ]
+  },
+  "ml.adaboost": {
+   "en_name": "AdaBoost Classifier",
+   "en_description": "Sequentially reweights simple weak learners into a strong classifier, useful when combining many inexpensive base models for prediction.",
+   "en_keywords": [
+    "adaboost",
+    "adaptive boosting",
+    "boosting",
+    "weak learner",
+    "ensemble",
+    "misclassification weighting",
+    "stumps",
+    "classification"
+   ],
+   "zh_examples": [
+    "能不能用一堆简单模型组合成一个效果好的分类器？",
+    "弱学习器是怎么一步步加权变强的？",
+    "用决策树桩做基学习器的提升方法是什么？"
+   ],
+   "en_examples": [
+    "How can many simple models be combined into one strong classifier?",
+    "Which method reweights misclassified samples in each round?",
+    "What boosting approach uses very simple base learners?"
+   ]
+  },
+  "ml.gbdt": {
+   "en_name": "Gradient Boosted Decision Trees",
+   "en_description": "Ensemble of trees fit sequentially to negative gradients; suits structured-data prediction, feature importance, and tabular classification/regression tasks.",
+   "en_keywords": [
+    "gradient boosting",
+    "gbdt",
+    "boosted trees",
+    "tree ensemble",
+    "xgboost",
+    "lightgbm",
+    "feature importance",
+    "residual fitting"
+   ],
+   "zh_examples": [
+    "梯度提升到底是在拟合什么东西？",
+    "为什么每棵树都在拟合上一步的残差？",
+    "树模型做特征重要性排序靠谱吗？"
+   ],
+   "en_examples": [
+    "How does gradient boosting actually fit the negative gradient?",
+    "When should I prefer boosted trees over a random forest?",
+    "Can I get feature importance from this kind of tree ensemble?"
+   ]
+  },
+  "ml.svm": {
+   "en_name": "Support Vector Machine",
+   "en_description": "Maximum-margin classifier using kernel tricks; suited to medium-sized, high-dimensional data with fairly separable class boundaries.",
+   "en_keywords": [
+    "svm",
+    "support vector machine",
+    "kernel",
+    "margin",
+    "svc",
+    "svr",
+    "rbf kernel",
+    "hyperplane"
+   ],
+   "zh_examples": [
+    "数据维度挺高但样本不多，用什么分类比较好？",
+    "核函数该怎么选？",
+    "什么是最大间隔分类？"
+   ],
+   "en_examples": [
+    "Which classifier works well when dimensions are high but samples are few?",
+    "How do I choose the right kernel for my problem?",
+    "What does maximizing the margin mean?"
+   ]
+  },
+  "ml.knn": {
+   "en_name": "K-Nearest Neighbors",
+   "en_description": "Instance-based learner predicting from nearest neighbors; a simple, training-free baseline for small-scale classification and regression.",
+   "en_keywords": [
+    "knn",
+    "k nearest neighbor",
+    "distance metric",
+    "lazy learner",
+    "instance-based",
+    "euclidean distance",
+    "k selection"
+   ],
+   "zh_examples": [
+    "有没有不用训练、直接拿来就能用的分类方法？",
+    "k 一般取多少合适？",
+    "相似样本靠距离度量怎么算比较好？"
+   ],
+   "en_examples": [
+    "Is there a simple baseline classifier that needs no training?",
+    "How do I pick k for nearest-neighbor prediction?",
+    "Which distance metric should I use for my data?"
+   ]
+  },
+  "ml.nb": {
+   "en_name": "Naive Bayes Classifier",
+   "en_description": "Probabilistic classifier assuming feature independence; a fast baseline for text and high-dimensional sparse features.",
+   "en_keywords": [
+    "naive bayes",
+    "bayesian classifier",
+    "generative model",
+    "text classification",
+    "gaussian nb",
+    "multinomial nb",
+    "bag of words",
+    "sparse features"
+   ],
+   "zh_examples": [
+    "做文本分类有没有又快又简单的基线？",
+    "高斯和多项式朴素贝叶斯用在什么场景？",
+    "特征之间不独立还能用贝叶斯吗？"
+   ],
+   "en_examples": [
+    "What's a fast baseline model for text classification?",
+    "When should I use Gaussian versus multinomial naive Bayes?",
+    "Does the independence assumption really matter in practice?"
+   ]
+  },
+  "ml.mlp": {
+   "en_name": "Multilayer Perceptron",
+   "en_description": "Fully connected neural network for strongly nonlinear relationships; suits predictive modeling when data volume is sufficient.",
+   "en_keywords": [
+    "mlp",
+    "neural network",
+    "multilayer perceptron",
+    "backpropagation",
+    "activation function",
+    "loss curve",
+    "deep learning",
+    "nonlinear"
+   ],
+   "zh_examples": [
+    "变量之间关系明显是非线性的，该用什么模型？",
+    "训练的时候 loss 一直不降怎么办？",
+    "神经网络层数和神经元数怎么定？"
+   ],
+   "en_examples": [
+    "My features have strongly nonlinear effects; what model should I use?",
+    "Why is my training loss not decreasing?",
+    "How many layers and neurons do I need?"
+   ]
+  },
+  "ml.rbf": {
+   "en_name": "Radial Basis Function Network",
+   "en_description": "Shallow network with localized radial basis responses; useful when training samples are limited but local structure matters.",
+   "en_keywords": [
+    "rbf network",
+    "radial basis function",
+    "local approximation",
+    "shallow network",
+    "gaussian kernel",
+    "center selection",
+    "interpolation"
+   ],
+   "zh_examples": [
+    "样本不太多但想做局部逼近，有什么浅层网络可用？",
+    "径向基网络和普通神经网络差别在哪？",
+    "基函数中心怎么选？"
+   ],
+   "en_examples": [
+    "I have few samples but want local function approximation; what should I use?",
+    "How is a radial basis network different from a standard MLP?",
+    "How do I choose the centers of the basis functions?"
+   ]
+  },
+  "ml.trees": {
+   "en_name": "CART Decision Tree",
+   "en_description": "Builds interpretable binary trees using Gini or entropy splitting to produce if-then rules and feature importance for classification tasks.",
+   "en_keywords": [
+    "decision tree",
+    "cart",
+    "gini impurity",
+    "entropy",
+    "classification tree",
+    "rule extraction",
+    "feature importance",
+    "splitting criterion"
+   ],
+   "zh_examples": [
+    "我想把分类结果变成人能看懂的规则，该用什么模型？",
+    "哪个算法能顺便告诉我哪些特征最重要？",
+    "有没有既能分类又能给出可解释规则的方法？"
+   ],
+   "en_examples": [
+    "I need a model that gives me readable if-then rules for a classification problem.",
+    "Which algorithm can also tell me which features matter most?",
+    "Is there a classifier that outputs interpretable decision rules?"
+   ]
+  },
+  "ml.lda_qda": {
+   "en_name": "LDA QDA Discriminant Analysis",
+   "en_description": "Classifies observations with linear or quadratic discriminant boundaries and simultaneously yields dimensionality reduction for visualization.",
+   "en_keywords": [
+    "linear discriminant analysis",
+    "quadratic discriminant analysis",
+    "lda",
+    "qda",
+    "discriminant function",
+    "classification boundary",
+    "dimensionality reduction",
+    "supervised classification"
+   ],
+   "zh_examples": [
+    "有没有方法既能分类又能把高维数据降到二维画出来？",
+    "两类问题想找个线性的分界线，用什么好？",
+    "判别函数怎么算？能不能做可视化？"
+   ],
+   "en_examples": [
+    "Which method both classifies and reduces dimensions so I can plot the classes?",
+    "I want a linear separating boundary for a two-class problem.",
+    "Can I get discriminant functions and a visualization at the same time?"
+   ]
+  },
+  "series.arima": {
+   "en_name": "ARIMA Forecasting",
+   "en_description": "Models a univariate stationary-after-differencing time series with autoregressive and moving-average terms for short-term forecasting and diagnostics.",
+   "en_keywords": [
+    "arima",
+    "autoregressive integrated moving average",
+    "time series forecasting",
+    "differencing",
+    "stationarity",
+    "acf pacf",
+    "short-term forecast",
+    "univariate series"
+   ],
+   "zh_examples": [
+    "这组月度数据怎么预测下几个月？",
+    "序列不平稳需要先差分吗？",
+    "帮我看看这个时间序列该定几阶 p 和 q。"
+   ],
+   "en_examples": [
+    "How do I forecast the next few months of this univariate data?",
+    "Does this series need differencing before modeling?",
+    "How do I choose the p and q orders for my time series?"
+   ]
+  },
+  "series.sarima": {
+   "en_name": "Seasonal ARIMA Forecasting",
+   "en_description": "Extends ARIMA with seasonal terms to capture stable periodic patterns such as monthly or quarterly cycles for seasonal forecasting.",
+   "en_keywords": [
+    "seasonal arima",
+    "sarima",
+    "seasonality",
+    "seasonal decomposition",
+    "periodic pattern",
+    "monthly data",
+    "quarterly forecasting",
+    "seasonal differencing"
+   ],
+   "zh_examples": [
+    "季度数据有明显的季节规律，怎么预测？",
+    "我的销量每年固定有淡旺季，用什么模型？",
+    "季节周期怎么加到预测模型里？"
+   ],
+   "en_examples": [
+    "My quarterly data shows a strong seasonal pattern; what model should I use?",
+    "Sales peak every year at the same time — how do I model that?",
+    "How do I account for seasonality in my forecast?"
+   ]
+  },
+  "series.garch": {
+   "en_name": "GARCH Volatility Modeling",
+   "en_description": "Captures conditional heteroskedasticity and clusters of volatility in financial return series to forecast time-varying risk.",
+   "en_keywords": [
+    "garch",
+    "volatility",
+    "conditional heteroskedasticity",
+    "volatility clustering",
+    "financial returns",
+    "risk forecasting",
+    "arch effect",
+    "variance model"
+   ],
+   "zh_examples": [
+    "金融收益率的波动忽大忽小，怎么建模预测风险？",
+    "怎么检验数据有没有波动聚集现象？",
+    "我想预测未来几天的波动率该用什么？"
+   ],
+   "en_examples": [
+    "How do I model volatility clustering in my stock returns?",
+    "Is there a test for conditional heteroskedasticity in this series?",
+    "I need to forecast risk over the next few days — what model fits?"
+   ]
+  },
+  "series.var": {
+   "en_name": "VAR Vector Autoregression",
+   "en_description": "Models multiple interdependent time series jointly to analyze dynamic interactions and generate impulse response functions.",
+   "en_keywords": [
+    "vector autoregression",
+    "var",
+    "impulse response",
+    "granger causality",
+    "multivariate time series",
+    "dynamic interaction",
+    "forecast error variance decomposition",
+    "cointegration"
+   ],
+   "zh_examples": [
+    "几个宏观变量互相影响，怎么分析它们的动态关系？",
+    "怎么做脉冲响应分析？",
+    "哪个模型能看变量之间的因果传导？"
+   ],
+   "en_examples": [
+    "How can I study the dynamic interactions among several macroeconomic variables?",
+    "What model gives impulse response functions for my system?",
+    "I want to trace how a shock propagates across these series."
+   ]
+  },
+  "series.adf": {
+   "en_name": "ADF Unit Root Test",
+   "en_description": "Tests whether a time series is stationary before modeling to avoid spurious regression; used in time series forecasting and stationarity diagnostics.",
+   "en_keywords": [
+    "adf test",
+    "unit root",
+    "stationarity",
+    "stationary test",
+    "time series",
+    "spurious regression",
+    "augmented dickey fuller",
+    "平稳性检验"
+   ],
+   "zh_examples": [
+    "我这组时间数据做回归前要不要先看平稳性？",
+    "感觉我的序列有趋势，直接建模会不会伪回归啊？",
+    "怎么判断一个时间序列是不是平稳的？"
+   ],
+   "en_examples": [
+    "Do I need to check stationarity before fitting my time series model?",
+    "How can I tell if my series has a unit root?",
+    "Will I get spurious regression if I skip the stationarity test?"
+   ]
+  },
+  "series.coint": {
+   "en_name": "Cointegration Test",
+   "en_description": "Tests whether multiple non-stationary series share a long-run equilibrium relationship; used when series are individually non-stationary but move together.",
+   "en_keywords": [
+    "cointegration",
+    "cointegration test",
+    "long run equilibrium",
+    "engle granger",
+    "johansen",
+    "non stationary series",
+    "long term relationship",
+    "协整检验"
+   ],
+   "zh_examples": [
+    "两个序列都不平稳，但感觉它们长期一起波动，怎么检验？",
+    "多个宏观经济变量之间有没有长期均衡关系？",
+    "不做协整直接回归有什么问题？"
+   ],
+   "en_examples": [
+    "How do I check if two non-stationary series move together in the long run?",
+    "Is there a long-run equilibrium relationship among these macro variables?",
+    "What happens if I regress non-stationary series without testing cointegration?"
+   ]
+  },
+  "series.granger": {
+   "en_name": "Granger Causality Test",
+   "en_description": "Determines whether one time series has predictive power for another, capturing lead-lag relationships in forecasting and causality analysis.",
+   "en_keywords": [
+    "granger causality",
+    "granger test",
+    "lead lag",
+    "predictive relationship",
+    "causality test",
+    "forecasting",
+    "领先滞后",
+    "格兰杰因果"
+   ],
+   "zh_examples": [
+    "想知道房价是不是领先GDP变化，该怎么做检验？",
+    "一个指标能帮着预测另一个吗？",
+    "这两个变量谁先动谁后动，能测出来吗？"
+   ],
+   "en_examples": [
+    "Does one variable help forecast another?",
+    "How can I test the lead-lag relationship between these series?",
+    "Is there predictive causality from sales to advertising spend?"
+   ]
+  },
+  "series.gm11": {
+   "en_name": "Grey Prediction GM(1,1)",
+   "en_description": "Small-sample forecasting method using cumulative generation on few data points; suited to short sequences with near-exponential growth trends.",
+   "en_keywords": [
+    "grey prediction",
+    "gm(1,1)",
+    "grey model",
+    "small sample forecasting",
+    "cumulative generation",
+    "few data points",
+    "exponential growth",
+    "灰色预测"
+   ],
+   "zh_examples": [
+    "只有六七个数据点，能做预测吗？",
+    "数据太少传统模型都拟合不了怎么办？",
+    "这种近似指数增长的小样本该用什么方法预测？"
+   ],
+   "en_examples": [
+    "I only have six data points, can I still build a forecast?",
+    "What forecasting method works with very few observations?",
+    "How to predict a series that grows almost exponentially with limited data?"
+   ]
+  },
+  "series.moran": {
+   "en_name": "Moran's I Spatial Autocorrelation",
+   "en_description": "Measures whether spatial units cluster similarly or oppositely, using global and local indicators to detect spatial patterns before spatial regression.",
+   "en_keywords": [
+    "moran's i",
+    "spatial autocorrelation",
+    "spatial clustering",
+    "global moran",
+    "local moran",
+    "lisa",
+    "spatial pattern",
+    "空间自相关"
+   ],
+   "zh_examples": [
+    "这些地区的经济数据在空间上是不是扎堆的？",
+    "怎么判断相邻城市之间有没有相似性？",
+    "空间聚集程度该用什么指标衡量？"
+   ],
+   "en_examples": [
+    "Are these regional values spatially clustered?",
+    "How do I test for spatial autocorrelation in my data?",
+    "Do neighboring areas show similar patterns?"
+   ]
+  },
+  "series.spatial": {
+   "en_name": "Spatial Lag and Error Models",
+   "en_description": "Regression models incorporating spatial weight matrices, including lag, error, and Durbin specifications; used when significant spatial autocorrelation exists.",
+   "en_keywords": [
+    "spatial lag model",
+    "spatial error model",
+    "spatial durbin",
+    "spatial regression",
+    "spatial weight matrix",
+    "sar",
+    "sem",
+    "空间计量"
+   ],
+   "zh_examples": [
+    "空间自相关显著了，回归模型要怎么改？",
+    "普通回归忽略了空间关系结果不准怎么办？",
+    "空间杜宾模型什么时候该用？"
+   ],
+   "en_examples": [
+    "My data shows significant spatial autocorrelation, which regression should I use?",
+    "How do I include spatial weights in my regression?",
+    "When is a spatial Durbin model appropriate?"
+   ]
+  },
+  "series.panel": {
+   "en_name": "Panel Data Models",
+   "en_description": "Estimates effects using data with multiple individuals observed over multiple periods; suitable for fixed effects, random effects, and system GMM in panel analysis.",
+   "en_keywords": [
+    "panel data",
+    "fixed effects",
+    "random effects",
+    "system gmm",
+    "longitudinal data",
+    "panel regression",
+    "within estimator",
+    "dynamic panel"
+   ],
+   "zh_examples": [
+    "我有30个省10年的数据，该怎么做回归分析？",
+    "个体和时间都有的数据用什么模型比较好？",
+    "动态面板数据要用什么估计方法？"
+   ],
+   "en_examples": [
+    "I have 30 provinces observed over 10 years, which model should I use?",
+    "How do I handle unobserved heterogeneity in longitudinal data?",
+    "What estimator is appropriate for a dynamic panel with lagged dependent variable?"
+   ]
+  },
+  "series.threshold": {
+   "en_name": "Threshold Regression",
+   "en_description": "Captures regime-dependent effects by estimating a model that splits observations at a threshold value of a threshold variable, allowing coefficients to change across regimes.",
+   "en_keywords": [
+    "threshold regression",
+    "threshold effect",
+    "regime switching",
+    "panel threshold model",
+    "segmented regression",
+    "threshold variable",
+    "breakpoint",
+    "hansen threshold"
+   ],
+   "zh_examples": [
+    "影响效果可能在某个临界点前后不一样，怎么检验？",
+    "我想看看收入超过某个水平后政策效果会不会变化",
+    "有没有办法找出关系发生转折的那个点？"
+   ],
+   "en_examples": [
+    "How do I test whether the effect changes after a certain cutoff?",
+    "I suspect the relationship differs above and below some income level, what method fits?",
+    "Is there a way to locate the breakpoint where the coefficient switches?"
+   ]
+  },
+  "series.tobit": {
+   "en_name": "Tobit Regression",
+   "en_description": "Models a dependent variable that is censored or truncated, such as values recorded as zero when below a detection limit, using maximum likelihood for limited dependent variables.",
+   "en_keywords": [
+    "tobit regression",
+    "censored dependent variable",
+    "truncated regression",
+    "limited dependent variable",
+    "censoring",
+    "truncation",
+    "maximum likelihood",
+    "corner solution"
+   ],
+   "zh_examples": [
+    "因变量有很多0值，直接回归好像不对，应该用什么？",
+    "数据低于检测限都记成0了，怎么建模？",
+    "这种截断的数据普通最小二乘能用吗？"
+   ],
+   "en_examples": [
+    "My dependent variable has many zeros, is OLS still valid?",
+    "Values below the detection limit are all recorded as zero, how should I model this?",
+    "Which model handles censored outcome data properly?"
+   ]
+  },
+  "series.quantile": {
+   "en_name": "Quantile Regression",
+   "en_description": "Estimates conditional effects at different quantiles of the outcome, useful when interest lies in how predictors shape the upper or lower tails rather than the mean.",
+   "en_keywords": [
+    "quantile regression",
+    "conditional quantile",
+    "median regression",
+    "distributional effects",
+    "tail effects",
+    "quantile effects",
+    "robust regression",
+    "rank-based"
+   ],
+   "zh_examples": [
+    "我想知道对高收入人群和低收入人群的影响有什么不同",
+    "平均效应看不出差异，能不能看不同分位点的效果？",
+    "有没有方法分析分布上端的影响因素？"
+   ],
+   "en_examples": [
+    "Does the effect differ for high- and low-performing individuals?",
+    "How can I see effects across the distribution rather than only the mean?",
+    "Which method estimates covariate effects at the upper tail?"
+   ]
+  },
+  "causal.did": {
+   "en_name": "Difference-in-Differences",
+   "en_description": "Measures causal policy effects by comparing outcome changes over time between treated and control groups, widely used for policy evaluation with pre- and post-intervention data.",
+   "en_keywords": [
+    "difference-in-differences",
+    "did",
+    "policy evaluation",
+    "treatment effect",
+    "parallel trends",
+    "natural experiment",
+    "event study",
+    "pre post comparison"
+   ],
+   "zh_examples": [
+    "有个政策在部分省份先试点，怎么评估政策效果？",
+    "有试点组和对照组的前后数据，用什么方法好？",
+    "怎么判断政策是不是真的有效果？"
+   ],
+   "en_examples": [
+    "How do I evaluate a policy that was piloted in some regions?",
+    "I have treated and control groups with pre- and post-policy data, what method works?",
+    "What design identifies the causal effect of a rollout program?"
+   ]
+  },
+  "causal.psm": {
+   "en_name": "Propensity Score Matching",
+   "en_description": "Matches treated and control units with similar estimated treatment probabilities to create comparable groups, followed by balance checks and post-matching effect comparison.",
+   "en_keywords": [
+    "propensity score matching",
+    "psm",
+    "matching",
+    "treatment selection bias",
+    "balance test",
+    "covariate balancing",
+    "average treatment effect",
+    "nearest neighbor matching"
+   ],
+   "zh_examples": [
+    "处理组和对照组基础条件差太多，直接比不公平怎么办？",
+    "怎么给非随机分组的数据配对出可比样本？",
+    "匹配完之后要做哪些检验？"
+   ],
+   "en_examples": [
+    "The treated and control groups differ greatly at baseline, how can I make them comparable?",
+    "How do I construct comparable samples from observational data?",
+    "What balance diagnostics should I run after matching?"
+   ]
+  },
+  "causal.psmdid": {
+   "en_name": "Propensity Score Matching DID",
+   "en_description": "Combines propensity score matching with difference-in-differences to reduce selection bias while comparing before-after changes across treated and control groups.",
+   "en_keywords": [
+    "psm-did",
+    "propensity score matching difference-in-differences",
+    "matched did",
+    "selection bias",
+    "policy evaluation",
+    "causal effect",
+    "staggered adoption"
+   ],
+   "zh_examples": [
+    "政策效果评估时想先做倾向得分匹配再做双重差分，应该怎么做？",
+    "处理组和对照组一开始就不平行，能不能先匹配再比前后变化？",
+    "匹配之后再做 DID 的结果可信吗，具体步骤是什么？"
+   ],
+   "en_examples": [
+    "How do I combine propensity score matching with a difference-in-differences design?",
+    "My treatment and control groups are not comparable at baseline; can I match them first and then run DID?",
+    "What is the workflow for doing matched difference-in-differences for policy evaluation?"
+   ]
+  },
+  "causal.rd": {
+   "en_name": "Regression Discontinuity Design",
+   "en_description": "Estimates local causal effects by comparing units just above and below an arbitrary cutoff threshold, such as score cutoffs or age limits, where treatment assignment jumps.",
+   "en_keywords": [
+    "regression discontinuity",
+    "rd",
+    "rdd",
+    "cutoff",
+    "threshold",
+    "discontinuity",
+    "local average treatment effect",
+    "fuzzy rd"
+   ],
+   "zh_examples": [
+    "只有一部分人刚好过线才享受政策，这种数据怎么估计效果？",
+    "分数线附近的样本能不能用来评估政策影响？",
+    "处理是按年龄门槛给的，用什么方法做因果推断？"
+   ],
+   "en_examples": [
+    "Treatment is assigned only above a certain score cutoff; how can I estimate its causal effect?",
+    "Can I use a regression discontinuity design for evaluating an age-threshold policy?",
+    "How do I test for a jump at the cutoff in a fuzzy RD setting?"
+   ]
+  },
+  "causal.heckman": {
+   "en_name": "Heckman Two-Step Correction",
+   "en_description": "Corrects sample selection bias when observations are only observed for self-selected individuals, using an inverse Mills ratio in a two-step estimation procedure.",
+   "en_keywords": [
+    "heckman selection model",
+    "sample selection bias",
+    "two-step",
+    "inverse mills ratio",
+    "self-selection",
+    "selection correction",
+    "endogenous sample"
+   ],
+   "zh_examples": [
+    "只有工资高于某个水平的人才愿意被调查，怎么修正选择偏误？",
+    "数据里只看得到参与培训的那批人，能纠正这种自选择问题吗？",
+    "样本不是随机的，怎么处理只观测到一部分人的偏误？"
+   ],
+   "en_examples": [
+    "How do I correct for sample selection when only self-selected individuals appear in my data?",
+    "Only people who opted into the program are observed; can a two-step selection model help?",
+    "What do I do if my outcome is only observed for a non-random subsample?"
+   ]
+  },
+  "causal.placebo": {
+   "en_name": "Placebo Test",
+   "en_description": "Runs falsification checks by randomly reassigning treatment timing or group membership to verify findings are not driven by coincidental trends, common in DID robustness analysis.",
+   "en_keywords": [
+    "placebo test",
+    "placebo check",
+    "falsification",
+    "randomized treatment timing",
+    "robustness",
+    "pseudo treatment",
+    "permutation test"
+   ],
+   "zh_examples": [
+    "DID 结果做完之后怎么判断是不是碰巧的趋势？",
+    "想做个假政策时间点的稳健性检验该怎么做？",
+    "随机换处理组再跑一遍，结果不显著说明什么？"
+   ],
+   "en_examples": [
+    "How can I verify my difference-in-differences result is not just a coincidental trend?",
+    "What falsification checks should I run after a policy evaluation with DID?",
+    "If I randomly reassign the treatment group and the effect disappears, what does that imply?"
+   ]
+  },
+  "design.factorial": {
+   "en_name": "Full Factorial Design",
+   "en_description": "Designs experiments that estimate main effects and interactions of multiple factors simultaneously by testing every combination of factor levels.",
+   "en_keywords": [
+    "factorial design",
+    "full factorial",
+    "main effect",
+    "interaction effect",
+    "factorial experiment",
+    "anova design",
+    "multi-factor experiment"
+   ],
+   "zh_examples": [
+    "两个因素都想看主效应和交互作用，实验该怎么安排？",
+    "怎么做能同时估计多个变量各自的影响和它们之间的交互？",
+    "全因子试验的样本量一般要多少？"
+   ],
+   "en_examples": [
+    "How do I set up an experiment to estimate both main effects and interactions?",
+    "I want to test several factors at once; should I use a full factorial design?",
+    "What sample size do I need for a factorial experiment?"
+   ]
+  },
+  "design.orthogonal": {
+   "en_name": "Orthogonal Array Design",
+   "en_description": "Uses orthogonal tables to plan multi-factor experiments efficiently when a full factorial run is infeasible, keeping factor effects independently estimable.",
+   "en_keywords": [
+    "orthogonal design",
+    "orthogonal array",
+    "taguchi method",
+    "fractional factorial",
+    "multi-factor experiment",
+    "efficient experimental design",
+    "L4 L8 table"
+   ],
+   "zh_examples": [
+    "因素太多做不完全部组合，有没有省事的试验安排方法？",
+    "用正交表安排实验，结果怎么分析？",
+    "什么情况下可以用部分组合代替全因子实验？"
+   ],
+   "en_examples": [
+    "I have too many factors to test every combination; how can I design the experiment?",
+    "How do I analyze data collected from an orthogonal array design?",
+    "When is a fractional or orthogonal design acceptable instead of full factorial?"
+   ]
+  },
+  "design.uniform": {
+   "en_name": "Uniform Experimental Design",
+   "en_description": "Creates experiments where test points spread evenly over the design space, suitable when factor levels are many and orthogonal arrays are insufficient.",
+   "en_keywords": [
+    "uniform design",
+    "space-filling design",
+    "uniformity",
+    "quasi-random sampling",
+    "experimental design",
+    "level combination",
+    "discrepancy"
+   ],
+   "zh_examples": [
+    "因素水平特别多，正交表根本排不开，有没有办法让试验点撒得均匀一点？",
+    "怎么设计实验才能让样本点在参数空间里分布得更均匀？",
+    "水平数很多的时候该用什么抽样方式做试验？"
+   ],
+   "en_examples": [
+    "I have many factor levels and can't fit an orthogonal array — how do I spread test points evenly?",
+    "What kind of experiment design gives space-filling coverage of the parameter region?",
+    "How can I choose level combinations so the samples are uniformly scattered?"
+   ]
+  },
+  "design.rsm": {
+   "en_name": "Response Surface Methodology",
+   "en_description": "Fits a second-order model to locate optimal factor combinations, used when the goal is finding optima rather than just identifying significant factors.",
+   "en_keywords": [
+    "response surface methodology",
+    "rsm",
+    "optimization",
+    "second-order model",
+    "quadratic model",
+    "factor interaction",
+    "optimal region",
+    "desirability"
+   ],
+   "zh_examples": [
+    "我想找到几个因素的最佳搭配，让响应值最大，该怎么做？",
+    "做完筛选实验之后，怎么进一步找最优工艺参数？",
+    "有没有能同时考虑因素交互作用并求最优解的建模方法？"
+   ],
+   "en_examples": [
+    "How do I find the optimal combination of factors that maximizes the response?",
+    "After screening, what method helps locate the optimum operating conditions?",
+    "Which approach models factor interactions and finds the best settings?"
+   ]
+  },
+  "design.ccd": {
+   "en_name": "Central Composite Design",
+   "en_description": "A classic design for fitting quadratic response surfaces with extrapolation ability, used when response surface experiments need star and axial points.",
+   "en_keywords": [
+    "central composite design",
+    "ccd",
+    "response surface",
+    "quadratic surface",
+    "axial points",
+    "star points",
+    "face-centered",
+    "rotatability"
+   ],
+   "zh_examples": [
+    "响应面实验想拟合二次曲面，用什么设计比较好？",
+    "中心复合设计里的轴向点和星点是干嘛的？",
+    "有没有能外推预测、又能拟合二次项的实验设计？"
+   ],
+   "en_examples": [
+    "What design lets me fit a quadratic response surface with extrapolation?",
+    "Why do central composite designs include axial or star points?",
+    "Which DOE structure supports quadratic terms and prediction beyond the cube?"
+   ]
+  },
+  "design.boxbehnken": {
+   "en_name": "Box-Behnken Design",
+   "en_description": "A three-level response surface design excluding corner points, suitable when extreme combinations are costly or dangerous to run.",
+   "en_keywords": [
+    "box-behnken design",
+    "b",
+    "three-level design",
+    "no corner points",
+    "response surface",
+    "d-optimal",
+    "spherical design",
+    "economical design"
+   ],
+   "zh_examples": [
+    "做二次响应面实验又不想把因素都拉到极端水平，有什么设计？",
+    "角点实验风险太大，能不能只做中间水平的组合？",
+    "因素只有三个水平时用哪种响应面设计比较省实验？"
+   ],
+   "en_examples": [
+    "Which response surface design avoids running extreme corner combinations?",
+    "Can I fit a quadratic model without testing all factors at their limits?",
+    "What design uses three levels but skips the corner points?"
+   ]
+  },
+  "eval.pca": {
+   "en_name": "PCA-Based Weighting",
+   "en_description": "Assigns weights to indicators by variance contribution in principal components, used for objective weighting when high-variance indicators should count more.",
+   "en_keywords": [
+    "principal component analysis",
+    "pca",
+    "objective weighting",
+    "variance contribution",
+    "comprehensive evaluation",
+    "dimension reduction",
+    "eigenvector",
+    "indicator weights"
+   ],
+   "zh_examples": [
+    "多个指标做综合评价，怎么客观地确定每个指标的权重？",
+    "能不能让波动大的指标自动占更大权重？",
+    "主成分的方差贡献率怎么用来给指标赋权？"
+   ],
+   "en_examples": [
+    "How can I objectively assign weights to multiple evaluation indicators?",
+    "Can indicators with larger variance automatically get more weight?",
+    "How do I use variance explained by components to weight criteria?"
+   ]
+  },
+  "eval.factor": {
+   "en_name": "Factor Analysis Scoring",
+   "en_description": "Extracts latent factors behind correlated indicators to obtain factor scores and structural interpretation, suitable for multidimensional evaluation studies.",
+   "en_keywords": [
+    "factor analysis",
+    "latent factor",
+    "factor scores",
+    "common variance",
+    "rotation",
+    "structural interpretation",
+    "correlation",
+    "dimension reduction"
+   ],
+   "zh_examples": [
+    "一堆指标背后好像就那么两三个潜在维度，怎么提取出来？",
+    "怎么从相关指标里找出公共因子并算因子得分？",
+    "做综合评价时想解释指标间的内在结构，用什么方法？"
+   ],
+   "en_examples": [
+    "How do I uncover the latent dimensions behind many correlated indicators?",
+    "How are common factors extracted and factor scores computed?",
+    "Which method reveals the underlying structure of an indicator set?"
+   ]
+  },
+  "eval.entropy": {
+   "en_name": "Entropy Weight Method",
+   "en_description": "Assigns objective indicator weights based on data dispersion and information content, useful when expert judgment is unavailable.",
+   "en_keywords": [
+    "entropy weight",
+    "objective weighting",
+    "information content",
+    "indicator weight",
+    "dispersion",
+    "data-driven weighting",
+    "entropy method"
+   ],
+   "zh_examples": [
+    "不想让专家来定权重，能不能直接用数据本身算出各指标的权重？",
+    "我有一堆评价指标，想根据每个指标的数据波动大小自动分配权重怎么做？",
+    "这种纯靠数据离散程度来定权重的方法适合什么情况？"
+   ],
+   "en_examples": [
+    "How can I calculate indicator weights purely from the data without expert scores?",
+    "Which weighting method uses the information content of each indicator to set weights?",
+    "I need objective weights based on how dispersed my data is—what should I use?"
+   ]
+  },
+  "eval.critic": {
+   "en_name": "CRITIC Weighting Method",
+   "en_description": "Derives objective weights from both the contrast intensity and conflict between indicators, suited when indicators vary greatly or correlate strongly.",
+   "en_keywords": [
+    "CRITIC",
+    "objective weighting",
+    "contrast intensity",
+    "conflict",
+    "correlation",
+    "indicator weight",
+    "variance",
+    "information quantity"
+   ],
+   "zh_examples": [
+    "指标之间相关性比较强，用什么方法算权重更合理？",
+    "各指标的数值差异特别大，怎么客观地给它们分配权重？",
+    "有没有一种权重方法同时考虑指标的波动大小和指标间的相关性？"
+   ],
+   "en_examples": [
+    "My indicators are highly correlated—how should I weight them objectively?",
+    "Which method accounts for both variance and correlation when assigning weights?",
+    "The indicators have very different ranges; what weighting approach handles that?"
+   ]
+  },
+  "eval.topsis": {
+   "en_name": "TOPSIS Ranking Method",
+   "en_description": "Ranks alternatives by measuring closeness to an ideal and distance from an anti-ideal solution, applied when weights are already determined.",
+   "en_keywords": [
+    "TOPSIS",
+    "ideal solution",
+    "rank alternatives",
+    "closeness coefficient",
+    "negative ideal",
+    "multi-criteria ranking",
+    "decision making",
+    "distance to ideal"
+   ],
+   "zh_examples": [
+    "权重都定好了，怎么根据离最优方案的远近给这些方案排个名？",
+    "有没有一种方法能算出每个方案离理想解有多近然后排序？",
+    "想把各方案按接近最好和远离最差的程度排个顺序该怎么做？"
+   ],
+   "en_examples": [
+    "Given fixed weights, how do I rank alternatives by their distance from the ideal solution?",
+    "I want a method that scores how close each option is to the best possible outcome.",
+    "How can I order the alternatives based on proximity to ideal and anti-ideal points?"
+   ]
+  },
+  "eval.vikor": {
+   "en_name": "VIKOR Compromise Ranking",
+   "en_description": "Ranks alternatives via group utility and regret measures, ideal when compromises are needed and avoiding options that perform poorly on any single criterion.",
+   "en_keywords": [
+    "VIKOR",
+    "compromise ranking",
+    "group utility",
+    "individual regret",
+    "multi-criteria decision",
+    "compromise solution",
+    "worst criterion",
+    "ranking"
+   ],
+   "zh_examples": [
+    "有没有办法在排序时防止某个指标特别差的方案被选出来？",
+    "想在多个方案之间做折中选择，让整体表现和最差项都能兼顾，怎么做？",
+    "除了综合排名，还想看看每个方案最差的一项表现，用什么方法？"
+   ],
+   "en_examples": [
+    "How can I rank options while penalizing any option that is very bad on one criterion?",
+    "I need a compromise ranking that balances overall utility and worst-case performance.",
+    "Which method avoids selecting an alternative that scores poorly on a single criterion?"
+   ]
+  },
+  "eval.rsr": {
+   "en_name": "Rank Sum Ratio Method",
+   "en_description": "Converts multi-indicator values into ranks and computes a composite ratio for tiered evaluation, useful with many heterogeneous, differently scaled indicators.",
+   "en_keywords": [
+    "rank sum ratio",
+    "RSR",
+    "rank aggregation",
+    "comprehensive evaluation",
+    "tiered ranking",
+    "non-normal data",
+    "multi-indicator",
+    "grade classification"
+   ],
+   "zh_examples": [
+    "指标特别多而且单位都不一样，能不能用排名的方式做综合评价？",
+    "想把评价结果分成几个等级，有什么简单的方法？",
+    "数据不太符合正态分布，用什么综合评价方法比较稳妥？"
+   ],
+   "en_examples": [
+    "I have many indicators with different units—can I evaluate using ranks instead?",
+    "How do I turn a multi-indicator score into a few performance tiers?",
+    "What ranking-based method works well when the data is not normally distributed?"
+   ]
+  },
+  "eval.dea": {
+   "en_name": "Data Envelopment Analysis",
+   "en_description": "Evaluates relative efficiency of decision units with multiple inputs and outputs by constructing a production frontier, suited for benchmarking.",
+   "en_keywords": [
+    "DEA",
+    "data envelopment analysis",
+    "efficiency",
+    "production frontier",
+    "input output",
+    "benchmarking",
+    "decision making units",
+    "relative efficiency",
+    "CCR",
+    "BCC"
+   ],
+   "zh_examples": [
+    "有好几个单位，每个都有多种投入和产出，怎么比较它们的效率？",
+    "想知道哪些决策单元是有效率的、哪些存在浪费，该用什么方法？",
+    "怎么给每个部门算出相对效率分数并找出标杆？"
+   ],
+   "en_examples": [
+    "How can I compare the efficiency of several units each with multiple inputs and outputs?",
+    "Which method identifies efficient and inefficient decision units?",
+    "I need to benchmark departments using their input and output data—what works?"
+   ]
+  },
+  "eval.fuzzy": {
+   "en_name": "Fuzzy Comprehensive Evaluation",
+   "en_description": "Evaluates alternatives with vague qualitative criteria using membership degrees and aggregation operators, suitable for rankings where judgments like good or average are fuzzy.",
+   "en_keywords": [
+    "fuzzy comprehensive evaluation",
+    "membership degree",
+    "membership matrix",
+    "synthesis operator",
+    "fuzzy set",
+    "qualitative criteria",
+    "evaluation matrix",
+    "fuzzy ranking"
+   ],
+   "zh_examples": [
+    "评价指标里都是“较好、一般”这种模糊说法，怎么给方案打分排序？",
+    "这种主观评语类的多指标评价该用什么方法处理？"
+   ],
+   "en_examples": [
+    "How do I rank alternatives when the criteria are judged with vague words like good or average?",
+    "Which method handles multi-criteria evaluation with linguistic ratings?"
+   ]
+  },
+  "eval.grey": {
+   "en_name": "Grey Relational Analysis",
+   "en_description": "Ranks alternatives by measuring geometric closeness to a reference sequence, ideal for small samples with incomplete information in decision-making.",
+   "en_keywords": [
+    "grey relational analysis",
+    "grey system",
+    "reference sequence",
+    "relational grade",
+    "small sample",
+    "incomplete information",
+    "closeness degree",
+    "grey incidence"
+   ],
+   "zh_examples": [
+    "样本就十几个，信息也不全，怎么衡量各方案跟理想情况的接近程度？",
+    "数据很少的时候怎么做方案优劣排序？"
+   ],
+   "en_examples": [
+    "I have very few samples and missing info; how can I rank options against an ideal reference?",
+    "What method works for ranking alternatives with limited data?"
+   ]
+  },
+  "domain.wordfreq": {
+   "en_name": "Word Frequency Statistics",
+   "en_description": "Counts term occurrences in a corpus to surface the most common words, a first step for text exploration, word clouds, and content overview.",
+   "en_keywords": [
+    "word frequency",
+    "term frequency",
+    "counting words",
+    "high frequency terms",
+    "word cloud",
+    "text statistics",
+    "tokenization",
+    "keyword counts"
+   ],
+   "zh_examples": [
+    "我想先看看这批评论里出现最多的词有哪些？",
+    "有没有办法快速统计一篇文章里的高频词？"
+   ],
+   "en_examples": [
+    "How can I quickly find the most frequent words in these reviews?",
+    "What is the standard first step to summarize text content by word counts?"
+   ]
+  },
+  "domain.tfidf": {
+   "en_name": "TF-IDF Keyword Extraction",
+   "en_description": "Weights terms by how often they appear in a document versus the corpus to extract distinctive keywords rather than generic frequent words.",
+   "en_keywords": [
+    "tf-idf",
+    "term frequency inverse document frequency",
+    "keyword extraction",
+    "feature weighting",
+    "text features",
+    "document keywords",
+    "distinctive terms",
+    "vectorization"
+   ],
+   "zh_examples": [
+    "怎么从一批文档里挑出最能代表每篇的关键词？",
+    "通用高频词太多，怎么找有区分度的词？"
+   ],
+   "en_examples": [
+    "How do I extract keywords that uniquely represent each document?",
+    "Which method downweights common words and highlights distinguishing terms?"
+   ]
+  },
+  "domain.sentiment": {
+   "en_name": "Sentiment Analysis",
+   "en_description": "Classifies reviews, comments, or interviews as positive, negative, or neutral using lexicons or supervised classifiers, for bulk opinion labeling.",
+   "en_keywords": [
+    "sentiment analysis",
+    "opinion mining",
+    "polarity classification",
+    "positive negative review",
+    "lexicon based",
+    "supervised classification",
+    "opinion detection",
+    "emotion classification"
+   ],
+   "zh_examples": [
+    "想给几万条评论自动标上好评差评，该怎么做？",
+    "访谈文本里的正负面态度怎么批量识别？"
+   ],
+   "en_examples": [
+    "How can I automatically label tens of thousands of reviews as positive or negative?",
+    "What approach batches opinion classification over interview text?"
+   ]
+  },
+  "domain.lda": {
+   "en_name": "LDA Topic Model",
+   "en_description": "Discovers latent topics and their word distributions across an unlabeled document collection, when topics are unknown and must be inferred.",
+   "en_keywords": [
+    "lda",
+    "latent dirichlet allocation",
+    "topic model",
+    "topic discovery",
+    "document topic distribution",
+    "topic words",
+    "unsupervised text clustering",
+    "probabilistic topics"
+   ],
+   "zh_examples": [
+    "这批文档没有主题标签，能不能让模型自己归纳出几个主题？",
+    "怎么自动把大量文章分成不同的主题？"
+   ],
+   "en_examples": [
+    "Can a model discover hidden topics in an unlabeled document collection?",
+    "How do I automatically group large numbers of documents by topic?"
+   ]
+  },
+  "domain.km": {
+   "en_name": "Kaplan-Meier Survival Curve",
+   "en_description": "Estimates the survival function and median survival time from follow-up data with censoring, used to visualize and compare survival differences between groups.",
+   "en_keywords": [
+    "kaplan-meier",
+    "survival curve",
+    "censoring",
+    "median survival",
+    "survival function",
+    "time-to-event",
+    "log-rank",
+    "nonparametric survival"
+   ],
+   "zh_examples": [
+    "我想看看病人的生存曲线，怎么画？",
+    "随访数据里有人失访了，中位生存期怎么算？",
+    "两组患者的生存时间差异怎么比较？"
+   ],
+   "en_examples": [
+    "How do I plot a survival curve from follow-up data with censoring?",
+    "What is the median survival time in my dataset?",
+    "How can I compare survival between two groups?"
+   ]
+  },
+  "domain.cox": {
+   "en_name": "Cox Proportional Hazards Regression",
+   "en_description": "Models how multiple covariates affect the hazard of an event, providing hazard ratios and p-values for risk factor analysis in survival studies.",
+   "en_keywords": [
+    "cox regression",
+    "proportional hazards",
+    "hazard ratio",
+    "covariates",
+    "survival analysis",
+    "multivariable risk model",
+    "cox ph",
+    "relative risk"
+   ],
+   "zh_examples": [
+    "想分析几个因素对生存时间的影响，用什么模型？",
+    "怎么做多因素的风险因素分析并报告风险比？",
+    "比例风险的假定要怎么检验？"
+   ],
+   "en_examples": [
+    "Which factors significantly affect survival time?",
+    "How do I interpret hazard ratios from a regression model?",
+    "Is my data suitable for a proportional hazards model?"
+   ]
+  },
+  "domain.nomogram": {
+   "en_name": "Prognostic Nomogram",
+   "en_description": "Converts a fitted Cox model into a visual point-based chart for individual risk prediction, enabling bedside estimation of survival probabilities.",
+   "en_keywords": [
+    "nomogram",
+    "risk score",
+    "prediction chart",
+    "individual prediction",
+    "survival probability",
+    "c-index",
+    "calibration",
+    "point-based scoring"
+   ],
+   "zh_examples": [
+    "能不能把模型做成一张可以直接打分的预测图？",
+    "怎么给每个病人算一个个体化的风险评分？",
+    "预测模型怎么验证准不准？"
+   ],
+   "en_examples": [
+    "How can I turn my model into a printable prediction chart?",
+    "How do I calculate an individual patient's risk score?",
+    "How do I validate the accuracy of a prediction model?"
+   ]
+  },
+  "domain.competing": {
+   "en_name": "Competing Risks Model",
+   "en_description": "Handles situations where multiple mutually exclusive event types occur, estimating cumulative incidence functions instead of naive Kaplan-Meier estimates.",
+   "en_keywords": [
+    "competing risks",
+    "cumulative incidence",
+    "cause-specific hazard",
+    "Fine-Gray",
+    "multiple endpoints",
+    "subdistribution hazard",
+    "cif",
+    "cause of death"
+   ],
+   "zh_examples": [
+    "病人可能死于癌症也可能死于其他病，这种数据怎么做？",
+    "多种终点事件同时存在时累积发生率怎么算？",
+    "用普通生存分析处理竞争事件会有什么问题？"
+   ],
+   "en_examples": [
+    "How do I analyze data where patients can die from different causes?",
+    "How do I estimate cumulative incidence with multiple event types?",
+    "Why is Kaplan-Meier inappropriate for competing events?"
+   ]
+  },
+  "domain.reliability": {
+   "en_name": "Reliability and Validity Analysis",
+   "en_description": "Assesses questionnaire scale quality using Cronbach's alpha for internal consistency and KMO/Bartlett tests for factorability before factor analysis.",
+   "en_keywords": [
+    "reliability",
+    "validity",
+    "cronbach alpha",
+    "kmo",
+    "bartlett test",
+    "internal consistency",
+    "questionnaire scale",
+    "factor analysis readiness"
+   ],
+   "zh_examples": [
+    "问卷回收了，怎么检验量表的信度和效度？",
+    "Cronbach α 多少算合格？",
+    "做因子分析之前需要通过什么检验？"
+   ],
+   "en_examples": [
+    "How do I check the reliability of my questionnaire?",
+    "What KMO value do I need before factor analysis?",
+    "Is a Cronbach's alpha of 0.6 acceptable?"
+   ]
+  },
+  "domain.nps": {
+   "en_name": "Net Promoter Score",
+   "en_description": "Computes NPS from a single 0-10 recommendation question by subtracting the percentage of detractors from promoters, common in customer satisfaction surveys.",
+   "en_keywords": [
+    "nps",
+    "net promoter score",
+    "recommendation",
+    "promoters",
+    "detractors",
+    "passives",
+    "customer satisfaction",
+    "0-10 survey"
+   ],
+   "zh_examples": [
+    "问卷里有一道 0 到 10 分的推荐意愿题，怎么算分？",
+    "NPS 的推荐者和贬损者是怎么划分的？",
+    "怎么报告和比较不同群体的推荐意愿？"
+   ],
+   "en_examples": [
+    "How do I calculate the score from a 0-10 recommendation question?",
+    "How are promoters and detractors defined?",
+    "How do I compare recommendation scores across customer groups?"
+   ]
+  },
+  "domain.kano": {
+   "en_name": "Kano Model Analysis",
+   "en_description": "Classifies product or service requirements into must-have, more-is-better, and indifferent categories from satisfaction survey responses, useful in market research and questionnaire analysis.",
+   "en_keywords": [
+    "kano model",
+    "requirement classification",
+    "must-have features",
+    "customer satisfaction",
+    "survey analysis",
+    "attractive needs",
+    "performance attributes",
+    "questionnaire"
+   ],
+   "zh_examples": [
+    "用户需求分不清哪些是基本功能哪些是加分项，怎么区分？",
+    "做问卷调研后，怎么判断哪些功能是必须有的，哪些做多了也没用？",
+    "客户满意度调查的数据怎么归类成必备型和期望型需求？"
+   ],
+   "en_examples": [
+    "How can I tell which survey items are basic requirements versus nice-to-have extras?",
+    "What method sorts customer needs into must-have, performance, and indifferent categories?",
+    "I have satisfaction questionnaire data — how do I classify feature importance?"
+   ]
+  },
+  "domain.maxdiff": {
+   "en_name": "MaxDiff Preference Scoring",
+   "en_description": "Forces respondents to choose most and least important items from sets, yielding preference share estimates when many options suffer from rating inflation.",
+   "en_keywords": [
+    "maxdiff",
+    "best worst scaling",
+    "forced choice",
+    "preference share",
+    "rating bias",
+    "paired comparison",
+    "priority ranking",
+    "conjoint alternative"
+   ],
+   "zh_examples": [
+    "问卷里大家都把选项打满分，怎么逼他们做出真正取舍？",
+    "产品功能太多，想让用户排个真正的优先级该怎么做？",
+    "怎么估计不同功能在用户心里的相对偏好份额？"
+   ],
+   "en_examples": [
+    "Respondents rate everything as important — how do I get them to make real trade-offs?",
+    "How can I estimate relative preference shares among many product features?",
+    "What survey technique forces priority ranking instead of giving everything 5 stars?"
+   ]
+  },
+  "domain.conjoint": {
+   "en_name": "Conjoint Analysis",
+   "en_description": "Measures utilities and relative importance of product attributes from choices among attribute combinations, suited for multi-attribute product design and pricing studies.",
+   "en_keywords": [
+    "conjoint analysis",
+    "attribute utility",
+    "part-worth",
+    "preference share",
+    "trade-off analysis",
+    "product design",
+    "choice modeling",
+    "importance weighting"
+   ],
+   "zh_examples": [
+    "产品有价格、功能、外观好几个属性，想知道用户最看重哪个？",
+    "怎么评估不同配置组合的吸引力？",
+    "新产品的属性水平怎么定价和组合才最受用户欢迎？"
+   ],
+   "en_examples": [
+    "How do I find out which product attribute matters most to buyers?",
+    "How can I estimate consumer utility for each level of a product attribute?",
+    "What analysis shows the trade-offs people make between price, features, and brand?"
+   ]
+  },
+  "domain.psm": {
+   "en_name": "Price Quantile Demand Proxy",
+   "en_description": "Estimates acceptable price ranges and optimal price points from willingness-to-pay data, helping set prices customers still accept rather than classic four-question PSM.",
+   "en_keywords": [
+    "price quantile",
+    "willingness to pay",
+    "price acceptance",
+    "demand proxy",
+    "price sensitivity",
+    "optimal price point",
+    "acceptable price range",
+    "pricing survey"
+   ],
+   "zh_examples": [
+    "定价定多少用户还能接受？怎么从调研数据看出来？",
+    "想找出用户愿意付的价格区间和最优点在哪。",
+    "价格上调多少客户不会大量流失，有没有从问卷估的方法？"
+   ],
+   "en_examples": [
+    "What price can we charge before customers push back?",
+    "How do I estimate the acceptable price range from survey data?",
+    "Where is the optimal price point based on willingness-to-pay responses?"
+   ]
+  },
+  "domain.control": {
+   "en_name": "Statistical Process Control Charts",
+   "en_description": "Monitors continuous production data with control charts to detect when a process drifts out of control and flags alarm points for quality engineers.",
+   "en_keywords": [
+    "control chart",
+    "spc",
+    "x-bar chart",
+    "r chart",
+    "cusum",
+    "ewma",
+    "process control",
+    "out of control",
+    "quality monitoring"
+   ],
+   "zh_examples": [
+    "产线数据一直监控着，怎么判断过程是不是失控了？",
+    "均值有没有慢慢漂移，用什么图能看出来？",
+    "怎么给生产过程设置告警，出现异常点自动提示？"
+   ],
+   "en_examples": [
+    "How do I know from monitoring data whether my process has gone out of control?",
+    "Which chart detects a slow drift in process mean over time?",
+    "How can I set up alarm points for production quality monitoring?"
+   ]
+  },
+  "domain.capability": {
+   "en_name": "Process Capability Analysis",
+   "en_description": "After confirming process stability, computes capability indices like Cp, Cpk, Pp, Ppk to assess whether output meets specification limits.",
+   "en_keywords": [
+    "process capability",
+    "cpk",
+    "cp",
+    "ppk",
+    "specification limits",
+    "capability index",
+    "sigma level",
+    "tolerance",
+    "six sigma"
+   ],
+   "zh_examples": [
+    "过程已经稳定了，怎么判断它能不能满足规格要求？",
+    "Cp 和 Cpk 有什么区别，怎么算我的产线能力？",
+    "规格上下限定了，产品合格率能达到什么水平？"
+   ],
+   "en_examples": [
+    "My process is stable — how do I check whether it meets specification limits?",
+    "What do Cp and Cpk tell me about my production line?",
+    "How do I calculate process capability from measurement data and tolerances?"
+   ]
+  },
+  "domain.weibull": {
+   "en_name": "Weibull Reliability Analysis",
+   "en_description": "Models time-to-failure data to estimate failure distributions, shape and scale parameters, and reliability curves for product lifetime and durability assessment.",
+   "en_keywords": [
+    "weibull analysis",
+    "reliability analysis",
+    "failure time distribution",
+    "lifetime analysis",
+    "survival distribution",
+    "shape scale parameters",
+    "reliability curve",
+    "durability testing"
+   ],
+   "zh_examples": [
+    "这批零件的失效时间想看看服从什么分布，怎么分析寿命可靠性？",
+    "产品寿命数据能画出可靠度曲线吗，怎么估计参数？",
+    "想知道平均无故障时间和失效率随时间怎么变化"
+   ],
+   "en_examples": [
+    "How do I fit a failure time distribution to lifetime data and get reliability curves?",
+    "Which model should I use to estimate shape and scale parameters from warranty return data?",
+    "Can I predict when the failure rate will start increasing for these components?"
+   ]
+  },
+  "domain.meta": {
+   "en_name": "Meta-analysis Effect Size Pooling",
+   "en_description": "Combines effect sizes across multiple studies on the same question, assessing heterogeneity and pooled estimates for evidence synthesis and systematic reviews.",
+   "en_keywords": [
+    "meta analysis",
+    "effect size pooling",
+    "pooled estimate",
+    "heterogeneity",
+    "forest plot",
+    "systematic review",
+    "odds ratio pooling",
+    "random effects model"
+   ],
+   "zh_examples": [
+    "十几篇研究结论不一致，能不能合成一个总的效应量？",
+    "怎么把不同论文里的风险比汇总起来，异质性怎么看？",
+    "做了系统综述之后合并结果应该用哪个模型？"
+   ],
+   "en_examples": [
+    "How do I combine effect sizes from several studies into one pooled estimate?",
+    "Which model should I use when there is high heterogeneity across trials?",
+    "Can I pool odds ratios from different papers and produce a forest plot?"
+   ]
+  }
+ }
+}

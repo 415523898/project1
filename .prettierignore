@@ -1,0 +1,13 @@
+.local/**
+**/node_modules/**
+**/__pycache__/**
+frontend/public/**
+frontend/src/assets/*
+!frontend/src/assets/providers/
+frontend/src/assets/providers/*
+!frontend/src/assets/providers/sources.json
+backend/agent/assets/**
+data/**
+frontend/src/data/method-graph.ts
+frontend/src/data/method-embeddings.ts
+**/package-lock.json
